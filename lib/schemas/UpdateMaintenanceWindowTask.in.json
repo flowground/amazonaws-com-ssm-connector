@@ -1,0 +1,377 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Description": {
+                    "description": "The new task description to specify.",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "LoggingInfo": {
+                    "description": "<p>The new logging location in Amazon S3 to specify.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> </note>",
+                    "properties": {
+                        "S3BucketName": {
+                            "description": "The name of an Amazon S3 bucket where execution logs are stored .",
+                            "maxLength": 63,
+                            "minLength": 3,
+                            "type": "string"
+                        },
+                        "S3KeyPrefix": {
+                            "description": "(Optional) The Amazon S3 bucket subfolder. ",
+                            "maxLength": 500,
+                            "type": "string"
+                        },
+                        "S3Region": {
+                            "description": "The region where the Amazon S3 bucket is located.",
+                            "maxLength": 20,
+                            "minLength": 3,
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "S3BucketName",
+                        "S3Region"
+                    ],
+                    "type": "object"
+                },
+                "MaxConcurrency": {
+                    "description": "The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code> is the number of targets that are allowed to run this task in parallel.",
+                    "maxLength": 7,
+                    "minLength": 1,
+                    "pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+                    "type": "string"
+                },
+                "MaxErrors": {
+                    "description": "The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum number of errors that are allowed before the task stops being scheduled.",
+                    "maxLength": 7,
+                    "minLength": 1,
+                    "pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The new task name to specify.",
+                    "maxLength": 128,
+                    "minLength": 3,
+                    "pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+                    "type": "string"
+                },
+                "Priority": {
+                    "description": "The new task priority to specify. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.",
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "Replace": {
+                    "description": "If True, then all fields that are required by the RegisterTaskWithMaintenanceWndow action are also required for this API request. Optional fields that are not specified are set to null.",
+                    "type": "boolean"
+                },
+                "ServiceRoleArn": {
+                    "description": "<p>The IAM service role ARN to modify. The system assumes this role during task execution.</p> <p>If you do not specify a service role ARN, Systems Manager will use your account's service-linked role for Systems Manager by default. If no service-linked role for Systems Manager exists in your account, it will be created when you run <code>RegisterTaskWithMaintenanceWindow</code> without specifying a service role ARN.</p> <p>For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions\">Service-Linked Role Permissions for Systems Manager</a> and <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role\">Should I Use a Service-Linked Role or a Custom Service Role to Run Maintenance Window Tasks? </a> in the <i>AWS Systems Manager User Guide</i>.</p>",
+                    "type": "string"
+                },
+                "Targets": {
+                    "description": "The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value. ",
+                    "items": {
+                        "description": "<p>An array of search criteria that targets instances using a Key,Value combination that you specify. <code>Targets</code> is required if you don't provide one or more instance IDs in the call.</p> <p/>",
+                        "properties": {
+                            "Key": {
+                                "description": "User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:&lt;Amazon EC2 tag&gt; or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting\">Targeting Multiple Instances</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=\\-@]*$",
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html\">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 50,
+                                "minItems": 0,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 5,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TaskArn": {
+                    "description": "The task ARN to modify.",
+                    "maxLength": 1600,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "TaskInvocationParameters": {
+                    "description": "The parameters that the task should use during execution. Populate only the fields that match the task type. All other fields should be empty.",
+                    "properties": {
+                        "Automation": {
+                            "description": "The parameters for an AUTOMATION task type.",
+                            "properties": {
+                                "DocumentVersion": {
+                                    "description": "The version of an Automation document to use during task execution.",
+                                    "pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+                                    "type": "string"
+                                },
+                                "Parameters": {
+                                    "description": "<p>The parameters for the AUTOMATION task.</p> <p>For information about specifying and updating task parameters, see <a>RegisterTaskWithMaintenanceWindow</a> and <a>UpdateMaintenanceWindowTask</a>.</p> <note> <p> <code>LoggingInfo</code> has been deprecated. To specify an S3 bucket to contain logs, instead use the <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> <p>For AUTOMATION task types, Systems Manager ignores any values specified for these parameters.</p> </note>",
+                                    "items": {
+                                        "properties": {
+                                            "key": {
+                                                "maxLength": 30,
+                                                "minLength": 1,
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "items": {
+                                                    "maxLength": 512,
+                                                    "minLength": 1,
+                                                    "type": "string"
+                                                },
+                                                "maxItems": 10,
+                                                "minItems": 0,
+                                                "type": "array"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "maxItems": 200,
+                                    "minItems": 1,
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Lambda": {
+                            "description": "The parameters for a LAMBDA task type.",
+                            "properties": {
+                                "ClientContext": {
+                                    "description": "Pass client-specific information to the Lambda function that you are invoking. You can then process the client information in your Lambda function as you choose through the context variable.",
+                                    "maxLength": 8000,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "Payload": {
+                                    "description": "JSON to provide to your Lambda function as input.",
+                                    "format": "password",
+                                    "maxLength": 4096,
+                                    "type": "string"
+                                },
+                                "Qualifier": {
+                                    "description": "(Optional) Specify a Lambda function version or alias name. If you specify a function version, the action uses the qualified function ARN to invoke a specific Lambda function. If you specify an alias name, the action uses the alias ARN to invoke the Lambda function version to which the alias points.",
+                                    "maxLength": 128,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "RunCommand": {
+                            "description": "The parameters for a RUN_COMMAND task type.",
+                            "properties": {
+                                "Comment": {
+                                    "description": "Information about the command(s) to execute.",
+                                    "maxLength": 100,
+                                    "type": "string"
+                                },
+                                "DocumentHash": {
+                                    "description": "The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1 hashes have been deprecated.",
+                                    "maxLength": 256,
+                                    "type": "string"
+                                },
+                                "DocumentHashType": {
+                                    "description": "SHA-256 or SHA-1. SHA-1 hashes have been deprecated.",
+                                    "enum": [
+                                        "Sha256",
+                                        "Sha1"
+                                    ],
+                                    "type": "string"
+                                },
+                                "NotificationConfig": {
+                                    "description": "Configurations for sending notifications about command status changes on a per-instance basis.",
+                                    "properties": {
+                                        "NotificationArn": {
+                                            "description": "An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.",
+                                            "type": "string"
+                                        },
+                                        "NotificationEvents": {
+                                            "description": "The different events for which you can receive notifications. These events include the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To learn more about these events, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html\">Configuring Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                            "items": {
+                                                "enum": [
+                                                    "All",
+                                                    "InProgress",
+                                                    "Success",
+                                                    "TimedOut",
+                                                    "Cancelled",
+                                                    "Failed"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "type": "array"
+                                        },
+                                        "NotificationType": {
+                                            "description": "Command: Receive notification when the status of a command changes. Invocation: For commands sent to multiple instances, receive notification on a per-instance basis when the status of a command changes. ",
+                                            "enum": [
+                                                "Command",
+                                                "Invocation"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "OutputS3BucketName": {
+                                    "description": "The name of the Amazon S3 bucket.",
+                                    "maxLength": 63,
+                                    "minLength": 3,
+                                    "type": "string"
+                                },
+                                "OutputS3KeyPrefix": {
+                                    "description": "The Amazon S3 bucket subfolder.",
+                                    "maxLength": 500,
+                                    "type": "string"
+                                },
+                                "Parameters": {
+                                    "description": "The parameters for the RUN_COMMAND task execution.",
+                                    "items": {
+                                        "properties": {
+                                            "key": {
+                                                "type": "string"
+                                            },
+                                            "value": {
+                                                "items": {
+                                                    "type": "string"
+                                                },
+                                                "type": "array"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "type": "array"
+                                },
+                                "ServiceRoleArn": {
+                                    "description": "The IAM service role to assume during task execution.",
+                                    "type": "string"
+                                },
+                                "TimeoutSeconds": {
+                                    "description": "If this time is reached and the command has not already started executing, it doesn't run.",
+                                    "maximum": 2592000,
+                                    "minimum": 30,
+                                    "type": "integer"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "StepFunctions": {
+                            "description": "The parameters for a STEP_FUNCTION task type.",
+                            "properties": {
+                                "Input": {
+                                    "description": "The inputs for the STEP_FUNCTION task.",
+                                    "format": "password",
+                                    "maxLength": 4096,
+                                    "type": "string"
+                                },
+                                "Name": {
+                                    "description": "The name of the STEP_FUNCTION task.",
+                                    "maxLength": 80,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "TaskParameters": {
+                    "description": "<p>The parameters to modify.</p> <note> <p> <code>TaskParameters</code> has been deprecated. To specify parameters to pass to a task when it runs, instead use the <code>Parameters</code> option in the <code>TaskInvocationParameters</code> structure. For information about how Systems Manager handles these options for the supported Maintenance Window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p> </note> <p>The map has the following format:</p> <p>Key: string, between 1 and 255 characters</p> <p>Value: an array of strings, each string is between 1 and 255 characters</p>",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "maxLength": 255,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "value": {
+                                "description": "Defines the values for a task parameter.",
+                                "properties": {
+                                    "Values": {
+                                        "description": "This field contains an array of 0 or more strings, each 1 to 255 characters in length.",
+                                        "items": {
+                                            "format": "password",
+                                            "maxLength": 255,
+                                            "minLength": 1,
+                                            "type": "string"
+                                        },
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "WindowId": {
+                    "description": "The Maintenance Window ID that contains the task to modify.",
+                    "maxLength": 20,
+                    "minLength": 20,
+                    "pattern": "^mw-[0-9a-f]{17}$",
+                    "type": "string"
+                },
+                "WindowTaskId": {
+                    "description": "The task ID to modify.",
+                    "maxLength": 36,
+                    "minLength": 36,
+                    "pattern": "^[0-9a-fA-F]{8}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{4}\\-[0-9a-fA-F]{12}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "WindowId",
+                "WindowTaskId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,114 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Attachments": {
+                    "description": "A list of key and value pairs that describe attachments to a version of a document.",
+                    "items": {
+                        "description": "A key and value pair that identifies the location of an attachment to a document.",
+                        "properties": {
+                            "Key": {
+                                "description": "The key of a key and value pair that identifies the location of an attachment to a document.",
+                                "enum": [
+                                    "SourceUrl"
+                                ],
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "The URL of the location of a document attachment, such as the URL of an Amazon S3 bucket.",
+                                "items": {
+                                    "maxLength": 1024,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 1,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "Content": {
+                    "description": "A valid JSON or YAML string.",
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "DocumentFormat": {
+                    "description": "Specify the document format for the new document version. Systems Manager supports JSON and YAML documents. JSON is the default format.",
+                    "enum": [
+                        "YAML",
+                        "JSON"
+                    ],
+                    "type": "string"
+                },
+                "DocumentVersion": {
+                    "description": "The version of the document that you want to update.",
+                    "pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The name of the document that you want to update.",
+                    "pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+                    "type": "string"
+                },
+                "TargetType": {
+                    "description": "Specify a new target type for the document.",
+                    "maxLength": 200,
+                    "pattern": "^\\/[\\w\\.\\-\\:\\/]*$",
+                    "type": "string"
+                },
+                "VersionName": {
+                    "description": "An optional field specifying the version of the artifact you are updating with the document. For example, \"Release 12, Update 6\". This value is unique across all versions of a document, and cannot be changed.",
+                    "pattern": "^[a-zA-Z0-9_\\-.]{1,128}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Content",
+                "Name"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

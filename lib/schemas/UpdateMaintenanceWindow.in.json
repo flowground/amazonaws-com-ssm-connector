@@ -1,0 +1,112 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AllowUnassociatedTargets": {
+                    "description": "Whether targets must be registered with the Maintenance Window before tasks can be defined for those targets.",
+                    "type": "boolean"
+                },
+                "Cutoff": {
+                    "description": "The number of hours before the end of the Maintenance Window that Systems Manager stops scheduling new tasks for execution.",
+                    "maximum": 23,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "Description": {
+                    "description": "An optional description for the update request.",
+                    "format": "password",
+                    "maxLength": 128,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Duration": {
+                    "description": "The duration of the Maintenance Window in hours.",
+                    "maximum": 24,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "Enabled": {
+                    "description": "Whether the Maintenance Window is enabled.",
+                    "type": "boolean"
+                },
+                "EndDate": {
+                    "description": "The date and time, in ISO-8601 Extended format, for when you want the Maintenance Window to become inactive. EndDate allows you to set a date and time in the future when the Maintenance Window will no longer run.",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The name of the Maintenance Window.",
+                    "maxLength": 128,
+                    "minLength": 3,
+                    "pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+                    "type": "string"
+                },
+                "Replace": {
+                    "description": "If True, then all fields that are required by the CreateMaintenanceWindow action are also required for this API request. Optional fields that are not specified are set to null. ",
+                    "type": "boolean"
+                },
+                "Schedule": {
+                    "description": "The schedule of the Maintenance Window in the form of a cron or rate expression.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "ScheduleTimezone": {
+                    "description": "The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"etc/UTC\", or \"Asia/Seoul\". For more information, see the <a href=\"https://www.iana.org/time-zones\">Time Zone Database</a> on the IANA website.",
+                    "type": "string"
+                },
+                "StartDate": {
+                    "description": "The time zone that the scheduled Maintenance Window executions are based on, in Internet Assigned Numbers Authority (IANA) format. For example: \"America/Los_Angeles\", \"etc/UTC\", or \"Asia/Seoul\". For more information, see the <a href=\"https://www.iana.org/time-zones\">Time Zone Database</a> on the IANA website.",
+                    "type": "string"
+                },
+                "WindowId": {
+                    "description": "The ID of the Maintenance Window to update.",
+                    "maxLength": 20,
+                    "minLength": 20,
+                    "pattern": "^mw-[0-9a-f]{17}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "WindowId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

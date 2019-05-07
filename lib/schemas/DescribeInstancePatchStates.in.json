@@ -1,0 +1,69 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "InstanceIds": {
+                    "description": "The ID of the instance whose patch state information should be retrieved.",
+                    "items": {
+                        "pattern": "(^i-(\\w{8}|\\w{17})$)|(^mi-\\w{17}$)",
+                        "type": "string"
+                    },
+                    "maxItems": 50,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of instances to return (per page).",
+                    "maximum": 100,
+                    "minimum": 10,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "InstanceIds"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

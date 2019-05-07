@@ -1,0 +1,94 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "MaxResults": {
+                    "description": "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.",
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                    "type": "string"
+                },
+                "ResourceType": {
+                    "description": "The type of resource you want to retrieve information about. For example, \"INSTANCE\".",
+                    "enum": [
+                        "INSTANCE"
+                    ],
+                    "type": "string"
+                },
+                "Targets": {
+                    "description": "The instance ID or key/value pair to retrieve information about.",
+                    "items": {
+                        "description": "<p>An array of search criteria that targets instances using a Key,Value combination that you specify. <code>Targets</code> is required if you don't provide one or more instance IDs in the call.</p> <p/>",
+                        "properties": {
+                            "Key": {
+                                "description": "User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:&lt;Amazon EC2 tag&gt; or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting\">Targeting Multiple Instances</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=\\-@]*$",
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html\">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 50,
+                                "minItems": 0,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 5,
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "Targets",
+                "ResourceType"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

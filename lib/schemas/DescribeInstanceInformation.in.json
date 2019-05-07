@@ -1,0 +1,125 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxResults": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Filters": {
+                    "description": "One or more filters. Use a filter to return a more specific list of instances. You can filter on Amazon EC2 tag. Specify tags by using a key-value mapping.",
+                    "items": {
+                        "description": "The filters to describe or get information about your managed instances.",
+                        "properties": {
+                            "Key": {
+                                "description": "<p>The filter key name to describe your instances. For example:</p> <p>\"InstanceIds\"|\"AgentVersion\"|\"PingStatus\"|\"PlatformTypes\"|\"ActivationIds\"|\"IamRole\"|\"ResourceType\"|\"AssociationStatus\"|\"Tag Key\"</p>",
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "The filter values.",
+                                "items": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "maxItems": 100,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "Key",
+                            "Values"
+                        ],
+                        "type": "object"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "InstanceInformationFilterList": {
+                    "description": "<p>This is a legacy method. We recommend that you don't use this method. Instead, use the <a>InstanceInformationFilter</a> action. The <code>InstanceInformationFilter</code> action enables you to return instance information by using tags that are specified as a key-value mapping. </p> <p>If you do use this method, then you can't use the <code>InstanceInformationFilter</code> action. Using this method and the <code>InstanceInformationFilter</code> action causes an exception error. </p>",
+                    "items": {
+                        "description": "<p>Describes a filter for a specific list of instances. You can filter instances information by using tags. You specify tags by using a key-value mapping.</p> <p>Use this action instead of the <a>DescribeInstanceInformationRequest$InstanceInformationFilterList</a> method. The <code>InstanceInformationFilterList</code> method is a legacy method and does not support tags. </p>",
+                        "properties": {
+                            "key": {
+                                "description": "The name of the filter. ",
+                                "enum": [
+                                    "InstanceIds",
+                                    "AgentVersion",
+                                    "PingStatus",
+                                    "PlatformTypes",
+                                    "ActivationIds",
+                                    "IamRole",
+                                    "ResourceType",
+                                    "AssociationStatus"
+                                ],
+                                "type": "string"
+                            },
+                            "valueSet": {
+                                "description": "The filter values.",
+                                "items": {
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "maxItems": 100,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "valueSet"
+                        ],
+                        "type": "object"
+                    },
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results. ",
+                    "maximum": 50,
+                    "minimum": 5,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

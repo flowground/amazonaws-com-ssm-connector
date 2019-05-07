@@ -1,0 +1,108 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Filters": {
+                    "description": "<p>Each entry in the array is a structure containing:</p> <p>Key (string between 1 and 200 characters)</p> <p> Values (array containing a single string)</p> <p> Type (string \"Equal\", \"NotEqual\", \"LessThan\", \"GreaterThan\")</p>",
+                    "items": {
+                        "description": "Defines a filter used in DescribeInstancePatchStatesForPatchGroup used to scope down the information returned by the API.",
+                        "properties": {
+                            "Key": {
+                                "description": "The key for the filter. Supported values are FailedCount, InstalledCount, InstalledOtherCount, MissingCount and NotApplicableCount.",
+                                "maxLength": 200,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Type": {
+                                "description": "The type of comparison that should be performed for the value: Equal, NotEqual, LessThan or GreaterThan.",
+                                "enum": [
+                                    "Equal",
+                                    "NotEqual",
+                                    "LessThan",
+                                    "GreaterThan"
+                                ],
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "The value for the filter, must be an integer greater than or equal to 0.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "Key",
+                            "Values",
+                            "Type"
+                        ],
+                        "type": "object"
+                    },
+                    "maxItems": 4,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of patches to return (per page).",
+                    "maximum": 100,
+                    "minimum": 10,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "The token for the next set of items to return. (You received this token from a previous call.)",
+                    "type": "string"
+                },
+                "PatchGroup": {
+                    "description": "The name of the patch group for which the patch state information should be retrieved.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "PatchGroup"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

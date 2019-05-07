@@ -1,0 +1,99 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "S3Destination": {
+                    "description": "Amazon S3 configuration details for the sync.",
+                    "properties": {
+                        "AWSKMSKeyARN": {
+                            "description": "The ARN of an encryption key for a destination in Amazon S3. Must belong to the same region as the destination Amazon S3 bucket.",
+                            "maxLength": 512,
+                            "minLength": 1,
+                            "pattern": "arn:.*",
+                            "type": "string"
+                        },
+                        "BucketName": {
+                            "description": "The name of the Amazon S3 bucket where the aggregated data is stored.",
+                            "maxLength": 2048,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "Prefix": {
+                            "description": "An Amazon S3 prefix for the bucket.",
+                            "maxLength": 256,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "Region": {
+                            "description": "The AWS Region with the Amazon S3 bucket targeted by the Resource Data Sync.",
+                            "maxLength": 64,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "SyncFormat": {
+                            "description": "A supported sync format. The following format is currently supported: JsonSerDe",
+                            "enum": [
+                                "JsonSerDe"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "BucketName",
+                        "SyncFormat",
+                        "Region"
+                    ],
+                    "type": "object"
+                },
+                "SyncName": {
+                    "description": "A name for the configuration.",
+                    "maxLength": 64,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "SyncName",
+                "S3Destination"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

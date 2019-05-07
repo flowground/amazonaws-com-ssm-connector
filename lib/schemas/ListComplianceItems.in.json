@@ -1,0 +1,112 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Filters": {
+                    "description": "One or more compliance filters. Use a filter to return a more specific list of results.",
+                    "items": {
+                        "description": "One or more filters. Use a filter to return a more specific list of results.",
+                        "properties": {
+                            "Key": {
+                                "description": "The name of the filter.",
+                                "maxLength": 200,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Type": {
+                                "description": "The type of comparison that should be performed for the value: Equal, NotEqual, BeginWith, LessThan, or GreaterThan.",
+                                "enum": [
+                                    "EQUAL",
+                                    "NOT_EQUAL",
+                                    "BEGIN_WITH",
+                                    "LESS_THAN",
+                                    "GREATER_THAN"
+                                ],
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "The value for which to search.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 20,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "MaxResults": {
+                    "description": "The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.",
+                    "maximum": 50,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "A token to start the list. Use this token to get the next set of results. ",
+                    "type": "string"
+                },
+                "ResourceIds": {
+                    "description": "The ID for the resources from which to get compliance information. Currently, you can only specify one resource ID.",
+                    "items": {
+                        "maxLength": 100,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "ResourceTypes": {
+                    "description": "The type of resource from which to get compliance information. Currently, the only supported resource type is <code>ManagedInstance</code>.",
+                    "items": {
+                        "maxLength": 50,
+                        "minLength": 1,
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

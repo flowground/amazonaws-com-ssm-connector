@@ -1,0 +1,97 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AssociationStatus": {
+                    "description": "The association status.",
+                    "properties": {
+                        "AdditionalInfo": {
+                            "description": "A user-defined string.",
+                            "maxLength": 1024,
+                            "type": "string"
+                        },
+                        "Date": {
+                            "description": "The date when the status changed.",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "Message": {
+                            "description": "The reason for the status.",
+                            "maxLength": 1024,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "Name": {
+                            "description": "The status.",
+                            "enum": [
+                                "Pending",
+                                "Success",
+                                "Failed"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Date",
+                        "Name",
+                        "Message"
+                    ],
+                    "type": "object"
+                },
+                "InstanceId": {
+                    "description": "The ID of the instance.",
+                    "pattern": "(^i-(\\w{8}|\\w{17})$)|(^mi-\\w{17}$)",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "The name of the Systems Manager document.",
+                    "pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Name",
+                "InstanceId",
+                "AssociationStatus"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

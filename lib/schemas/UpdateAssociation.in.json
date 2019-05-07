@@ -1,0 +1,186 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "AssociationId": {
+                    "description": "The ID of the association you want to update. ",
+                    "pattern": "[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+                    "type": "string"
+                },
+                "AssociationName": {
+                    "description": "The name of the association that you want to update.",
+                    "pattern": "^[a-zA-Z0-9_\\-.]{3,128}$",
+                    "type": "string"
+                },
+                "AssociationVersion": {
+                    "description": "This parameter is provided for concurrency control purposes. You must specify the latest association version in the service. If you want to ensure that this request succeeds, either specify <code>$LATEST</code>, or omit this parameter.",
+                    "pattern": "([$]LATEST)|([1-9][0-9]*)",
+                    "type": "string"
+                },
+                "AutomationTargetParameterName": {
+                    "description": "Specify the target for the association. This target is required for associations that use an Automation document and target resources by using rate controls.",
+                    "maxLength": 50,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "ComplianceSeverity": {
+                    "description": "The severity level to assign to the association.",
+                    "enum": [
+                        "CRITICAL",
+                        "HIGH",
+                        "MEDIUM",
+                        "LOW",
+                        "UNSPECIFIED"
+                    ],
+                    "type": "string"
+                },
+                "DocumentVersion": {
+                    "description": "The document version you want update for the association. ",
+                    "pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+                    "type": "string"
+                },
+                "MaxConcurrency": {
+                    "description": "<p>The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.</p> <p>If a new instance starts and attempts to execute an association while Systems Manager is executing MaxConcurrency associations, the association is allowed to run. During the next association interval, the new instance will process its association within the limit specified for MaxConcurrency.</p>",
+                    "maxLength": 7,
+                    "minLength": 1,
+                    "pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+                    "type": "string"
+                },
+                "MaxErrors": {
+                    "description": "<p>The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops sending requests when the fourth error is received. If you specify 0, then the system stops sending requests after the first error is returned. If you run an association on 50 instances and set MaxError to 10%, then the system stops sending the request when the sixth error is received.</p> <p>Executions that are already running an association when MaxErrors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set MaxConcurrency to 1 so that executions proceed one at a time.</p>",
+                    "maxLength": 7,
+                    "minLength": 1,
+                    "pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
+                    "type": "string"
+                },
+                "Name": {
+                    "description": "<p>The name of the SSM document that contains the configuration information for the instance. You can specify Command, Policy, or Automation documents.</p> <p>You can specify AWS-predefined documents, documents you created, or a document that is shared with you from another account.</p> <p>For SSM documents that are shared with you from other AWS accounts, you must specify the complete SSM document ARN, in the following format:</p> <p> <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i> </code> </p> <p>For example:</p> <p> <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code> </p> <p>For AWS-predefined documents and SSM documents you created in your account, you only need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or <code>My-Document</code>.</p>",
+                    "pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
+                    "type": "string"
+                },
+                "OutputLocation": {
+                    "description": "An Amazon S3 bucket where you want to store the results of this request.",
+                    "properties": {
+                        "S3Location": {
+                            "description": "An Amazon S3 bucket where you want to store the results of this request.",
+                            "properties": {
+                                "OutputS3BucketName": {
+                                    "description": "The name of the Amazon S3 bucket.",
+                                    "maxLength": 63,
+                                    "minLength": 3,
+                                    "type": "string"
+                                },
+                                "OutputS3KeyPrefix": {
+                                    "description": "The Amazon S3 bucket subfolder.",
+                                    "maxLength": 500,
+                                    "type": "string"
+                                },
+                                "OutputS3Region": {
+                                    "description": "(Deprecated) You can no longer specify this parameter. The system ignores it. Instead, Systems Manager automatically determines the Amazon S3 bucket region.",
+                                    "maxLength": 20,
+                                    "minLength": 3,
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Parameters": {
+                    "description": "The parameters you want to update for the association. If you create a parameter using Parameter Store, you can reference the parameter using {{ssm:parameter-name}}",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "ScheduleExpression": {
+                    "description": "The cron expression used to schedule the association that you want to update.",
+                    "maxLength": 256,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Targets": {
+                    "description": "The targets of the association.",
+                    "items": {
+                        "description": "<p>An array of search criteria that targets instances using a Key,Value combination that you specify. <code>Targets</code> is required if you don't provide one or more instance IDs in the call.</p> <p/>",
+                        "properties": {
+                            "Key": {
+                                "description": "User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:&lt;Amazon EC2 tag&gt; or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting\">Targeting Multiple Instances</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=\\-@]*$",
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html\">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 50,
+                                "minItems": 0,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 5,
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "AssociationId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,229 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ClientToken": {
+                    "description": "User-provided idempotency token. The token must be unique, is case insensitive, enforces the UUID format, and can't be reused.",
+                    "maxLength": 36,
+                    "minLength": 36,
+                    "pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}",
+                    "type": "string"
+                },
+                "DocumentName": {
+                    "description": "The name of the Automation document to use for this execution.",
+                    "pattern": "^[a-zA-Z0-9_\\-.:/]{3,128}$",
+                    "type": "string"
+                },
+                "DocumentVersion": {
+                    "description": "The version of the Automation document to use for this execution.",
+                    "pattern": "([$]LATEST|[$]DEFAULT|^[1-9][0-9]*$)",
+                    "type": "string"
+                },
+                "MaxConcurrency": {
+                    "description": "The maximum number of targets allowed to run this task in parallel. You can specify a number, such as 10, or a percentage, such as 10%. The default value is 10.",
+                    "maxLength": 7,
+                    "minLength": 1,
+                    "pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+                    "type": "string"
+                },
+                "MaxErrors": {
+                    "description": "<p>The number of errors that are allowed before the system stops running the automation on additional targets. You can specify either an absolute number of errors, for example 10, or a percentage of the target set, for example 10%. If you specify 3, for example, the system stops running the automation when the fourth error is received. If you specify 0, then the system stops running the automation on additional targets after the first error result is returned. If you run an automation on 50 resources and set max-errors to 10%, then the system stops running the automation on additional targets when the sixth error is received.</p> <p>Executions that are already running an automation when max-errors is reached are allowed to complete, but some of these executions may fail as well. If you need to ensure that there won't be more than max-errors failed executions, set max-concurrency to 1 so the executions proceed one at a time.</p>",
+                    "maxLength": 7,
+                    "minLength": 1,
+                    "pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
+                    "type": "string"
+                },
+                "Mode": {
+                    "description": "The execution mode of the automation. Valid modes include the following: Auto and Interactive. The default mode is Auto.",
+                    "enum": [
+                        "Auto",
+                        "Interactive"
+                    ],
+                    "type": "string"
+                },
+                "Parameters": {
+                    "description": "A key-value map of execution parameters, which match the declared parameters in the Automation document.",
+                    "items": {
+                        "properties": {
+                            "key": {
+                                "maxLength": 30,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "value": {
+                                "items": {
+                                    "maxLength": 512,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "maxItems": 10,
+                                "minItems": 0,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 200,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "TargetLocations": {
+                    "description": "A location is a combination of AWS Regions and/or AWS accounts where you want to execute the Automation. Use this action to start an Automation in multiple Regions and multiple accounts. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html\">Concurrently Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems Manager User Guide</i>. ",
+                    "items": {
+                        "description": "The combination of AWS Regions and accounts targeted by the current Automation execution.",
+                        "properties": {
+                            "Accounts": {
+                                "description": "The AWS accounts targeted by the current Automation execution.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 50,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "ExecutionRoleName": {
+                                "description": "The Automation execution role used by the currently executing Automation.",
+                                "maxLength": 64,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Regions": {
+                                "description": "The AWS Regions targeted by the current Automation execution.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 50,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "TargetLocationMaxConcurrency": {
+                                "description": "The maxium number of AWS accounts and AWS regions allowed to run the Automation concurrently ",
+                                "maxLength": 7,
+                                "minLength": 1,
+                                "pattern": "^([1-9][0-9]*|[1-9][0-9]%|[1-9]%|100%)$",
+                                "type": "string"
+                            },
+                            "TargetLocationMaxErrors": {
+                                "description": "The maxium number of errors allowed before the system stops queueing additional Automation executions for the currently executing Automation. ",
+                                "maxLength": 7,
+                                "minLength": 1,
+                                "pattern": "^([1-9][0-9]*|[0]|[1-9][0-9]%|[0-9]%|100%)$",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 100,
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "TargetMaps": {
+                    "description": "A key-value mapping of document parameters to target resources. Both Targets and TargetMaps cannot be specified together.",
+                    "items": {
+                        "items": {
+                            "properties": {
+                                "key": {
+                                    "maxLength": 50,
+                                    "minLength": 1,
+                                    "type": "string"
+                                },
+                                "value": {
+                                    "items": {
+                                        "maxLength": 50,
+                                        "minLength": 1,
+                                        "type": "string"
+                                    },
+                                    "maxItems": 25,
+                                    "minItems": 0,
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "maxItems": 20,
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "maxItems": 300,
+                    "minItems": 0,
+                    "type": "array"
+                },
+                "TargetParameterName": {
+                    "description": "The name of the parameter used as the target resource for the rate-controlled execution. Required if you specify targets.",
+                    "maxLength": 30,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Targets": {
+                    "description": "A key-value mapping to target resources. Required if you specify TargetParameterName.",
+                    "items": {
+                        "description": "<p>An array of search criteria that targets instances using a Key,Value combination that you specify. <code>Targets</code> is required if you don't provide one or more instance IDs in the call.</p> <p/>",
+                        "properties": {
+                            "Key": {
+                                "description": "User-defined criteria for sending commands that target instances that meet the criteria. Key can be tag:&lt;Amazon EC2 tag&gt; or InstanceIds. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting\">Targeting Multiple Instances</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "pattern": "^[\\p{L}\\p{Z}\\p{N}_.:/=\\-@]*$",
+                                "type": "string"
+                            },
+                            "Values": {
+                                "description": "User-defined criteria that maps to Key. For example, if you specified tag:ServerRole, you could specify value:WebServer to execute a command on instances that include Amazon EC2 tags of ServerRole,WebServer. For more information about how to send commands that target instances using Key,Value parameters, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html\">Sending Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.",
+                                "items": {
+                                    "type": "string"
+                                },
+                                "maxItems": 50,
+                                "minItems": 0,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "maxItems": 5,
+                    "minItems": 0,
+                    "type": "array"
+                }
+            },
+            "required": [
+                "DocumentName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

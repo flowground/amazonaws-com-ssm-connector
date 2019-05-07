@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) Amazon Simple Systems Manager (SSM) MSP Connector
+# ![LOGO](logo.png) Amazon Simple Systems Manager (SSM) **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the Amazon Simple Systems Manager (SSM) API (version 2014-11-06).
+A generated **flow**ground connector for the Amazon Simple Systems Manager (SSM) API (version 2014-11-06).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/ssm/2014-11-06/swagger.json<br/>
-Generated at: 2019-05-07T11:16:43+03:00
+Generated at: 2019-05-07T17:36:23+03:00
 
 ## API Description
 
@@ -1501,7 +1501,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-ssm-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-ssm-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 

@@ -1,6 +1,6 @@
 {
     "title": "Amazon Simple Systems Manager (SSM)",
-    "description": "<fullname>AWS Systems Manager</fullname> <p>AWS Systems Manager is a collection of capabilities that helps you automate management tasks such as collecting system inventory, applying operating system (OS) patches, automating the creation of Amazon Machine Images (AMIs), and configuring operating systems (OSs) and applications at scale. Systems Manager lets you remotely and securely manage the configuration of your managed instances. A <i>managed instance</i> is any Amazon EC2 instance or on-premises machine in your hybrid environment that has been configured for Systems Manager.</p> <p>This reference is intended to be used with the <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/\">AWS Systems Manager User Guide</a>.</p> <p>To get started, verify prerequisites and configure managed instances. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html\">Systems Manager Prerequisites</a> in the <i>AWS Systems Manager User Guide</i>.</p> <p>For information about other API actions you can perform on Amazon EC2 instances, see the <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/\">Amazon EC2 API Reference</a>. For information about how to use a Query API, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html\">Making API Requests</a>. </p>",
+    "description": "AWS Systems Manager AWS Systems Manager is a collection of capabilities that\nhelps you automate management tasks such as collecting system inventory,\napplying operating system (OS) patches, automating the creation of Amazon\nMachine Images (AMIs), and configuring operating systems (OSs) and applications\nat scale. Systems Manager lets you remotely and securely manage the\nconfiguration of your managed instances. A managed instance is any Amazon EC2\ninstance or on-premises machine in your hybrid environment that has been\nconfigured for Systems Manager.\n\nThis reference is intended to be used with the AWS Systems Manager User Guide\n[http://docs.aws.amazon.com/systems-manager/latest/userguide/].\n\nTo get started, verify prerequisites and configure managed instances. For more\ninformation, see Systems Manager Prerequisites\n[http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html] \nin the AWS Systems Manager User Guide.\n\nFor information about other API actions you can perform on Amazon EC2 instances,\nsee the Amazon EC2 API Reference\n[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/]. For information about\nhow to use a Query API, see Making API Requests\n[http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html]\n.",
     "docsUrl": "https://docs.aws.amazon.com/ssm/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/ssm/2014-11-06/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,8 +38,8 @@
     "actions": {
         "AddTagsToResource": {
             "main": "./lib/actions/AddTagsToResource.js",
-            "title": "<p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you can assign to your documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test.</p> <p>Each resource can have a maximum of 50 tags. </p> <p>We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. </p> <p>For more information about tags, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>",
-            "description": "<p>Adds or overwrites one or more tags for the specified resource. Tags are metadata that you can assign to your documents, managed instances, Maintenance Windows, Parameter Store parameters, and patch baselines. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment. Each tag consists of a key and an optional value, both of which you define. For example, you could define a set of tags for your account's managed instances that helps you track each instance's owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production, Pre-Production, or Test.</p> <p>Each resource can have a maximum of 50 tags. </p> <p>We recommend that you devise a set of tag keys that meets your needs for each resource type. Using a consistent set of tag keys makes it easier for you to manage your resources. You can search and filter the resources based on the tags you add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters. </p> <p>For more information about tags, see <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\">Tagging Your Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+            "title": "AddTagsToResource",
+            "description": "Adds or overwrites one or more tags for the specified resource. Tags are\nmetadata that you can assign to your documents, managed instances, Maintenance\nWindows, Parameter Store parameters, and patch baselines. Tags enable you to\ncategorize your resources in different ways, for example, by purpose, owner, or\nenvironment. Each tag consists of a key and an optional value, both of which you\ndefine. For example, you could define a set of tags for your account's managed\ninstances that helps you track each instance's owner and stack level. For\nexample: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and\nValue=Production, Pre-Production, or Test.\n\nEach resource can have a maximum of 50 tags. \n\nWe recommend that you devise a set of tag keys that meets your needs for each\nresource type. Using a consistent set of tag keys makes it easier for you to\nmanage your resources. You can search and filter the resources based on the tags\nyou add. Tags don't have any semantic meaning to Amazon EC2 and are interpreted\nstrictly as a string of characters. \n\nFor more information about tags, see Tagging Your Amazon EC2 Resources\n[http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html] in the \nAmazon EC2 User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -55,7 +55,7 @@
         },
         "CancelCommand": {
             "main": "./lib/actions/CancelCommand.js",
-            "title": "Attempts to cancel the command specified by the Command ID. There is no guarantee that the command will be terminated and the underlying process stopped.",
+            "title": "CancelCommand",
             "description": "Attempts to cancel the command specified by the Command ID. There is no guarantee that the command will be terminated and the underlying process stopped.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "CancelMaintenanceWindowExecution": {
             "main": "./lib/actions/CancelMaintenanceWindowExecution.js",
-            "title": "Stops a Maintenance Window execution that is already in progress and cancels any tasks in the window that have not already starting running. (Tasks already in progress will continue to completion.)",
+            "title": "CancelMaintenanceWindowExecution",
             "description": "Stops a Maintenance Window execution that is already in progress and cancels any tasks in the window that have not already starting running. (Tasks already in progress will continue to completion.)",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "CreateActivation": {
             "main": "./lib/actions/CreateActivation.js",
-            "title": "Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these resources using Run Command. An on-premises server or virtual machine that has been registered with EC2 is called a managed instance. For more information about activations, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html\">Setting Up Systems Manager in Hybrid Environments</a>.",
+            "title": "CreateActivation",
             "description": "Registers your on-premises server or virtual machine with Amazon EC2 so that you can manage these resources using Run Command. An on-premises server or virtual machine that has been registered with EC2 is called a managed instance. For more information about activations, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html\">Setting Up Systems Manager in Hybrid Environments</a>.",
             "fields": {
                 "verbose": {
@@ -106,8 +106,8 @@
         },
         "CreateAssociation": {
             "main": "./lib/actions/CreateAssociation.js",
-            "title": "<p>Associates the specified Systems Manager document with the specified instances or targets.</p> <p>When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the instance processes the document and configures the instance as specified.</p> <p>If you associate a document with an instance that already has an associated document, the system returns the AssociationAlreadyExists exception.</p>",
-            "description": "<p>Associates the specified Systems Manager document with the specified instances or targets.</p> <p>When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the instance processes the document and configures the instance as specified.</p> <p>If you associate a document with an instance that already has an associated document, the system returns the AssociationAlreadyExists exception.</p>",
+            "title": "CreateAssociation",
+            "description": "Associates the specified Systems Manager document with the specified instances\nor targets.\n\nWhen you associate a document with one or more instances using instance IDs or\ntags, SSM Agent running on the instance processes the document and configures\nthe instance as specified.\n\nIf you associate a document with an instance that already has an associated\ndocument, the system returns the AssociationAlreadyExists exception.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -123,8 +123,8 @@
         },
         "CreateAssociationBatch": {
             "main": "./lib/actions/CreateAssociationBatch.js",
-            "title": "<p>Associates the specified Systems Manager document with the specified instances or targets.</p> <p>When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the instance processes the document and configures the instance as specified.</p> <p>If you associate a document with an instance that already has an associated document, the system returns the AssociationAlreadyExists exception.</p>",
-            "description": "<p>Associates the specified Systems Manager document with the specified instances or targets.</p> <p>When you associate a document with one or more instances using instance IDs or tags, SSM Agent running on the instance processes the document and configures the instance as specified.</p> <p>If you associate a document with an instance that already has an associated document, the system returns the AssociationAlreadyExists exception.</p>",
+            "title": "CreateAssociationBatch",
+            "description": "Associates the specified Systems Manager document with the specified instances\nor targets.\n\nWhen you associate a document with one or more instances using instance IDs or\ntags, SSM Agent running on the instance processes the document and configures\nthe instance as specified.\n\nIf you associate a document with an instance that already has an associated\ndocument, the system returns the AssociationAlreadyExists exception.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -140,8 +140,8 @@
         },
         "CreateDocument": {
             "main": "./lib/actions/CreateDocument.js",
-            "title": "<p>Creates a Systems Manager document.</p> <p>After you create a document, you can use CreateAssociation to associate it with one or more running instances.</p>",
-            "description": "<p>Creates a Systems Manager document.</p> <p>After you create a document, you can use CreateAssociation to associate it with one or more running instances.</p>",
+            "title": "CreateDocument",
+            "description": "Creates a Systems Manager document.\n\nAfter you create a document, you can use CreateAssociation to associate it with\none or more running instances.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -157,7 +157,7 @@
         },
         "CreateMaintenanceWindow": {
             "main": "./lib/actions/CreateMaintenanceWindow.js",
-            "title": "Creates a new Maintenance Window.",
+            "title": "CreateMaintenanceWindow",
             "description": "Creates a new Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -174,8 +174,8 @@
         },
         "CreatePatchBaseline": {
             "main": "./lib/actions/CreatePatchBaseline.js",
-            "title": "<p>Creates a patch baseline.</p> <note> <p>For information about valid key and value pairs in <code>PatchFilters</code> for each supported operating system type, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html\">PatchFilter</a>.</p> </note>",
-            "description": "<p>Creates a patch baseline.</p> <note> <p>For information about valid key and value pairs in <code>PatchFilters</code> for each supported operating system type, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html\">PatchFilter</a>.</p> </note>",
+            "title": "CreatePatchBaseline",
+            "description": "Creates a patch baseline.\n\nFor information about valid key and value pairs in PatchFilters for each\nsupported operating system type, see PatchFilter\n[http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html]\n.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -191,8 +191,8 @@
         },
         "CreateResourceDataSync": {
             "main": "./lib/actions/CreateResourceDataSync.js",
-            "title": "<p>Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the <a>ListResourceDataSync</a>.</p> <p>By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html\">Configuring Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>",
-            "description": "<p>Creates a resource data sync configuration to a single bucket in Amazon S3. This is an asynchronous operation that returns immediately. After a successful initial sync is completed, the system continuously syncs data to the Amazon S3 bucket. To check the status of the sync, use the <a>ListResourceDataSync</a>.</p> <p>By default, data is not encrypted in Amazon S3. We strongly recommend that you enable encryption in Amazon S3 to ensure secure data storage. We also recommend that you secure access to the Amazon S3 bucket by creating a restrictive bucket policy. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html\">Configuring Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.</p>",
+            "title": "CreateResourceDataSync",
+            "description": "Creates a resource data sync configuration to a single bucket in Amazon S3. This\nis an asynchronous operation that returns immediately. After a successful\ninitial sync is completed, the system continuously syncs data to the Amazon S3\nbucket. To check the status of the sync, use the ListResourceDataSync.\n\nBy default, data is not encrypted in Amazon S3. We strongly recommend that you\nenable encryption in Amazon S3 to ensure secure data storage. We also recommend\nthat you secure access to the Amazon S3 bucket by creating a restrictive bucket\npolicy. For more information, see Configuring Resource Data Sync for Inventory\n[http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html] \nin the AWS Systems Manager User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -208,7 +208,7 @@
         },
         "DeleteActivation": {
             "main": "./lib/actions/DeleteActivation.js",
-            "title": "Deletes an activation. You are not required to delete an activation. If you delete an activation, you can no longer use it to register additional managed instances. Deleting an activation does not de-register managed instances. You must manually de-register managed instances.",
+            "title": "DeleteActivation",
             "description": "Deletes an activation. You are not required to delete an activation. If you delete an activation, you can no longer use it to register additional managed instances. Deleting an activation does not de-register managed instances. You must manually de-register managed instances.",
             "fields": {
                 "verbose": {
@@ -225,8 +225,8 @@
         },
         "DeleteAssociation": {
             "main": "./lib/actions/DeleteAssociation.js",
-            "title": "<p>Disassociates the specified Systems Manager document from the specified instance.</p> <p>When you disassociate a document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.</p>",
-            "description": "<p>Disassociates the specified Systems Manager document from the specified instance.</p> <p>When you disassociate a document from an instance, it does not change the configuration of the instance. To change the configuration state of an instance after you disassociate a document, you must create a new document with the desired configuration and associate it with the instance.</p>",
+            "title": "DeleteAssociation",
+            "description": "Disassociates the specified Systems Manager document from the specified\ninstance.\n\nWhen you disassociate a document from an instance, it does not change the\nconfiguration of the instance. To change the configuration state of an instance\nafter you disassociate a document, you must create a new document with the\ndesired configuration and associate it with the instance.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -242,8 +242,8 @@
         },
         "DeleteDocument": {
             "main": "./lib/actions/DeleteDocument.js",
-            "title": "<p>Deletes the Systems Manager document and all instance associations to the document.</p> <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all instances that are associated with the document.</p>",
-            "description": "<p>Deletes the Systems Manager document and all instance associations to the document.</p> <p>Before you delete the document, we recommend that you use <a>DeleteAssociation</a> to disassociate all instances that are associated with the document.</p>",
+            "title": "DeleteDocument",
+            "description": "Deletes the Systems Manager document and all instance associations to the\ndocument.\n\nBefore you delete the document, we recommend that you use DeleteAssociation to\ndisassociate all instances that are associated with the document.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -259,7 +259,7 @@
         },
         "DeleteInventory": {
             "main": "./lib/actions/DeleteInventory.js",
-            "title": "Delete a custom inventory type, or the data associated with a custom Inventory type. Deleting a custom inventory type is also referred to as deleting a custom inventory schema.",
+            "title": "DeleteInventory",
             "description": "Delete a custom inventory type, or the data associated with a custom Inventory type. Deleting a custom inventory type is also referred to as deleting a custom inventory schema.",
             "fields": {
                 "verbose": {
@@ -276,7 +276,7 @@
         },
         "DeleteMaintenanceWindow": {
             "main": "./lib/actions/DeleteMaintenanceWindow.js",
-            "title": "Deletes a Maintenance Window.",
+            "title": "DeleteMaintenanceWindow",
             "description": "Deletes a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -293,7 +293,7 @@
         },
         "DeleteParameter": {
             "main": "./lib/actions/DeleteParameter.js",
-            "title": "Delete a parameter from the system.",
+            "title": "DeleteParameter",
             "description": "Delete a parameter from the system.",
             "fields": {
                 "verbose": {
@@ -310,7 +310,7 @@
         },
         "DeleteParameters": {
             "main": "./lib/actions/DeleteParameters.js",
-            "title": "Delete a list of parameters. This API is used to delete parameters by using the Amazon EC2 console.",
+            "title": "DeleteParameters",
             "description": "Delete a list of parameters. This API is used to delete parameters by using the Amazon EC2 console.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "DeletePatchBaseline": {
             "main": "./lib/actions/DeletePatchBaseline.js",
-            "title": "Deletes a patch baseline.",
+            "title": "DeletePatchBaseline",
             "description": "Deletes a patch baseline.",
             "fields": {
                 "verbose": {
@@ -344,7 +344,7 @@
         },
         "DeleteResourceDataSync": {
             "main": "./lib/actions/DeleteResourceDataSync.js",
-            "title": "Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to inventory data on managed instances are no longer synced with the target Amazon S3 bucket. Deleting a sync configuration does not delete data in the target Amazon S3 bucket.",
+            "title": "DeleteResourceDataSync",
             "description": "Deletes a Resource Data Sync configuration. After the configuration is deleted, changes to inventory data on managed instances are no longer synced with the target Amazon S3 bucket. Deleting a sync configuration does not delete data in the target Amazon S3 bucket.",
             "fields": {
                 "verbose": {
@@ -361,7 +361,7 @@
         },
         "DeregisterManagedInstance": {
             "main": "./lib/actions/DeregisterManagedInstance.js",
-            "title": "Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don't plan to use Run Command on the server, we suggest uninstalling SSM Agent first.",
+            "title": "DeregisterManagedInstance",
             "description": "Removes the server or virtual machine from the list of registered servers. You can reregister the instance again at any time. If you don't plan to use Run Command on the server, we suggest uninstalling SSM Agent first.",
             "fields": {
                 "verbose": {
@@ -378,7 +378,7 @@
         },
         "DeregisterPatchBaselineForPatchGroup": {
             "main": "./lib/actions/DeregisterPatchBaselineForPatchGroup.js",
-            "title": "Removes a patch group from a patch baseline.",
+            "title": "DeregisterPatchBaselineForPatchGroup",
             "description": "Removes a patch group from a patch baseline.",
             "fields": {
                 "verbose": {
@@ -395,7 +395,7 @@
         },
         "DeregisterTargetFromMaintenanceWindow": {
             "main": "./lib/actions/DeregisterTargetFromMaintenanceWindow.js",
-            "title": "Removes a target from a Maintenance Window.",
+            "title": "DeregisterTargetFromMaintenanceWindow",
             "description": "Removes a target from a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -412,7 +412,7 @@
         },
         "DeregisterTaskFromMaintenanceWindow": {
             "main": "./lib/actions/DeregisterTaskFromMaintenanceWindow.js",
-            "title": "Removes a task from a Maintenance Window.",
+            "title": "DeregisterTaskFromMaintenanceWindow",
             "description": "Removes a task from a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -429,7 +429,7 @@
         },
         "DescribeActivations": {
             "main": "./lib/actions/DescribeActivations.js",
-            "title": "Details about the activation, including: the date and time the activation was created, the expiration date, the IAM role assigned to the instances in the activation, and the number of instances activated by this registration.",
+            "title": "DescribeActivations",
             "description": "Details about the activation, including: the date and time the activation was created, the expiration date, the IAM role assigned to the instances in the activation, and the number of instances activated by this registration.",
             "fields": {
                 "verbose": {
@@ -446,7 +446,7 @@
         },
         "DescribeAssociation": {
             "main": "./lib/actions/DescribeAssociation.js",
-            "title": "Describes the association for the specified target or instance. If you created the association by using the <code>Targets</code> parameter, then you must retrieve the association by using the association ID. If you created the association by specifying an instance ID and a Systems Manager document, then you retrieve the association by specifying the document name and the instance ID. ",
+            "title": "DescribeAssociation",
             "description": "Describes the association for the specified target or instance. If you created the association by using the <code>Targets</code> parameter, then you must retrieve the association by using the association ID. If you created the association by specifying an instance ID and a Systems Manager document, then you retrieve the association by specifying the document name and the instance ID. ",
             "fields": {
                 "verbose": {
@@ -463,7 +463,7 @@
         },
         "DescribeAssociationExecutionTargets": {
             "main": "./lib/actions/DescribeAssociationExecutionTargets.js",
-            "title": "Use this API action to view information about a specific execution of a specific association.",
+            "title": "DescribeAssociationExecutionTargets",
             "description": "Use this API action to view information about a specific execution of a specific association.",
             "fields": {
                 "verbose": {
@@ -480,7 +480,7 @@
         },
         "DescribeAssociationExecutions": {
             "main": "./lib/actions/DescribeAssociationExecutions.js",
-            "title": "Use this API action to view all executions for a specific association ID. ",
+            "title": "DescribeAssociationExecutions",
             "description": "Use this API action to view all executions for a specific association ID. ",
             "fields": {
                 "verbose": {
@@ -497,7 +497,7 @@
         },
         "DescribeAutomationExecutions": {
             "main": "./lib/actions/DescribeAutomationExecutions.js",
-            "title": "Provides details about all active and terminated Automation executions.",
+            "title": "DescribeAutomationExecutions",
             "description": "Provides details about all active and terminated Automation executions.",
             "fields": {
                 "verbose": {
@@ -514,7 +514,7 @@
         },
         "DescribeAutomationStepExecutions": {
             "main": "./lib/actions/DescribeAutomationStepExecutions.js",
-            "title": "Information about all active and terminated step executions in an Automation workflow.",
+            "title": "DescribeAutomationStepExecutions",
             "description": "Information about all active and terminated step executions in an Automation workflow.",
             "fields": {
                 "verbose": {
@@ -531,7 +531,7 @@
         },
         "DescribeAvailablePatches": {
             "main": "./lib/actions/DescribeAvailablePatches.js",
-            "title": "Lists all patches that could possibly be included in a patch baseline.",
+            "title": "DescribeAvailablePatches",
             "description": "Lists all patches that could possibly be included in a patch baseline.",
             "fields": {
                 "verbose": {
@@ -548,7 +548,7 @@
         },
         "DescribeDocument": {
             "main": "./lib/actions/DescribeDocument.js",
-            "title": "Describes the specified Systems Manager document.",
+            "title": "DescribeDocument",
             "description": "Describes the specified Systems Manager document.",
             "fields": {
                 "verbose": {
@@ -565,7 +565,7 @@
         },
         "DescribeDocumentPermission": {
             "main": "./lib/actions/DescribeDocumentPermission.js",
-            "title": "Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user's AWS account ID) or publicly (<i>All</i>). ",
+            "title": "DescribeDocumentPermission",
             "description": "Describes the permissions for a Systems Manager document. If you created the document, you are the owner. If a document is shared, it can either be shared privately (by specifying a user's AWS account ID) or publicly (<i>All</i>). ",
             "fields": {
                 "verbose": {
@@ -582,7 +582,7 @@
         },
         "DescribeEffectiveInstanceAssociations": {
             "main": "./lib/actions/DescribeEffectiveInstanceAssociations.js",
-            "title": "All associations for the instance(s).",
+            "title": "DescribeEffectiveInstanceAssociations",
             "description": "All associations for the instance(s).",
             "fields": {
                 "verbose": {
@@ -599,7 +599,7 @@
         },
         "DescribeEffectivePatchesForPatchBaseline": {
             "main": "./lib/actions/DescribeEffectivePatchesForPatchBaseline.js",
-            "title": "Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline. Note that this API applies only to Windows patch baselines.",
+            "title": "DescribeEffectivePatchesForPatchBaseline",
             "description": "Retrieves the current effective patches (the patch and the approval state) for the specified patch baseline. Note that this API applies only to Windows patch baselines.",
             "fields": {
                 "verbose": {
@@ -616,7 +616,7 @@
         },
         "DescribeInstanceAssociationsStatus": {
             "main": "./lib/actions/DescribeInstanceAssociationsStatus.js",
-            "title": "The status of the associations for the instance(s).",
+            "title": "DescribeInstanceAssociationsStatus",
             "description": "The status of the associations for the instance(s).",
             "fields": {
                 "verbose": {
@@ -633,8 +633,8 @@
         },
         "DescribeInstanceInformation": {
             "main": "./lib/actions/DescribeInstanceInformation.js",
-            "title": "<p>Describes one or more of your instances. You can use this to get information about instances like the operating system platform, the SSM Agent version (Linux), status etc. If you specify one or more instance IDs, it returns information for those instances. If you do not specify instance IDs, it returns information for all your instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an error. </p> <note> <p>The IamRole field for this API action is the Amazon Identity and Access Management (IAM) role assigned to on-premises instances. This call does not return the IAM role for Amazon EC2 instances.</p> </note>",
-            "description": "<p>Describes one or more of your instances. You can use this to get information about instances like the operating system platform, the SSM Agent version (Linux), status etc. If you specify one or more instance IDs, it returns information for those instances. If you do not specify instance IDs, it returns information for all your instances. If you specify an instance ID that is not valid or an instance that you do not own, you receive an error. </p> <note> <p>The IamRole field for this API action is the Amazon Identity and Access Management (IAM) role assigned to on-premises instances. This call does not return the IAM role for Amazon EC2 instances.</p> </note>",
+            "title": "DescribeInstanceInformation",
+            "description": "Describes one or more of your instances. You can use this to get information\nabout instances like the operating system platform, the SSM Agent version\n(Linux), status etc. If you specify one or more instance IDs, it returns\ninformation for those instances. If you do not specify instance IDs, it returns\ninformation for all your instances. If you specify an instance ID that is not\nvalid or an instance that you do not own, you receive an error. \n\nThe IamRole field for this API action is the Amazon Identity and Access\nManagement (IAM) role assigned to on-premises instances. This call does not\nreturn the IAM role for Amazon EC2 instances.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -650,7 +650,7 @@
         },
         "DescribeInstancePatchStates": {
             "main": "./lib/actions/DescribeInstancePatchStates.js",
-            "title": "Retrieves the high-level patch state of one or more instances.",
+            "title": "DescribeInstancePatchStates",
             "description": "Retrieves the high-level patch state of one or more instances.",
             "fields": {
                 "verbose": {
@@ -667,7 +667,7 @@
         },
         "DescribeInstancePatchStatesForPatchGroup": {
             "main": "./lib/actions/DescribeInstancePatchStatesForPatchGroup.js",
-            "title": "Retrieves the high-level patch state for the instances in the specified patch group.",
+            "title": "DescribeInstancePatchStatesForPatchGroup",
             "description": "Retrieves the high-level patch state for the instances in the specified patch group.",
             "fields": {
                 "verbose": {
@@ -684,7 +684,7 @@
         },
         "DescribeInstancePatches": {
             "main": "./lib/actions/DescribeInstancePatches.js",
-            "title": "Retrieves information about the patches on the specified instance and their state relative to the patch baseline being used for the instance.",
+            "title": "DescribeInstancePatches",
             "description": "Retrieves information about the patches on the specified instance and their state relative to the patch baseline being used for the instance.",
             "fields": {
                 "verbose": {
@@ -701,7 +701,7 @@
         },
         "DescribeInventoryDeletions": {
             "main": "./lib/actions/DescribeInventoryDeletions.js",
-            "title": "Describes a specific delete inventory operation.",
+            "title": "DescribeInventoryDeletions",
             "description": "Describes a specific delete inventory operation.",
             "fields": {
                 "verbose": {
@@ -718,7 +718,7 @@
         },
         "DescribeMaintenanceWindowExecutionTaskInvocations": {
             "main": "./lib/actions/DescribeMaintenanceWindowExecutionTaskInvocations.js",
-            "title": "Retrieves the individual task executions (one per target) for a particular task executed as part of a Maintenance Window execution.",
+            "title": "DescribeMaintenanceWindowExecutionTaskInvocations",
             "description": "Retrieves the individual task executions (one per target) for a particular task executed as part of a Maintenance Window execution.",
             "fields": {
                 "verbose": {
@@ -735,7 +735,7 @@
         },
         "DescribeMaintenanceWindowExecutionTasks": {
             "main": "./lib/actions/DescribeMaintenanceWindowExecutionTasks.js",
-            "title": "For a given Maintenance Window execution, lists the tasks that were executed.",
+            "title": "DescribeMaintenanceWindowExecutionTasks",
             "description": "For a given Maintenance Window execution, lists the tasks that were executed.",
             "fields": {
                 "verbose": {
@@ -752,7 +752,7 @@
         },
         "DescribeMaintenanceWindowExecutions": {
             "main": "./lib/actions/DescribeMaintenanceWindowExecutions.js",
-            "title": "Lists the executions of a Maintenance Window. This includes information about when the Maintenance Window was scheduled to be active, and information about tasks registered and run with the Maintenance Window.",
+            "title": "DescribeMaintenanceWindowExecutions",
             "description": "Lists the executions of a Maintenance Window. This includes information about when the Maintenance Window was scheduled to be active, and information about tasks registered and run with the Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -769,7 +769,7 @@
         },
         "DescribeMaintenanceWindowSchedule": {
             "main": "./lib/actions/DescribeMaintenanceWindowSchedule.js",
-            "title": "Retrieves information about upcoming executions of a Maintenance Window.",
+            "title": "DescribeMaintenanceWindowSchedule",
             "description": "Retrieves information about upcoming executions of a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -786,7 +786,7 @@
         },
         "DescribeMaintenanceWindowTargets": {
             "main": "./lib/actions/DescribeMaintenanceWindowTargets.js",
-            "title": "Lists the targets registered with the Maintenance Window.",
+            "title": "DescribeMaintenanceWindowTargets",
             "description": "Lists the targets registered with the Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -803,7 +803,7 @@
         },
         "DescribeMaintenanceWindowTasks": {
             "main": "./lib/actions/DescribeMaintenanceWindowTasks.js",
-            "title": "Lists the tasks in a Maintenance Window.",
+            "title": "DescribeMaintenanceWindowTasks",
             "description": "Lists the tasks in a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -820,7 +820,7 @@
         },
         "DescribeMaintenanceWindows": {
             "main": "./lib/actions/DescribeMaintenanceWindows.js",
-            "title": "Retrieves the Maintenance Windows in an AWS account.",
+            "title": "DescribeMaintenanceWindows",
             "description": "Retrieves the Maintenance Windows in an AWS account.",
             "fields": {
                 "verbose": {
@@ -837,7 +837,7 @@
         },
         "DescribeMaintenanceWindowsForTarget": {
             "main": "./lib/actions/DescribeMaintenanceWindowsForTarget.js",
-            "title": "Retrieves information about the Maintenance Windows targets or tasks that an instance is associated with.",
+            "title": "DescribeMaintenanceWindowsForTarget",
             "description": "Retrieves information about the Maintenance Windows targets or tasks that an instance is associated with.",
             "fields": {
                 "verbose": {
@@ -854,8 +854,8 @@
         },
         "DescribeParameters": {
             "main": "./lib/actions/DescribeParameters.js",
-            "title": "<p>Get information about a parameter.</p> <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of <code>MaxResults</code>. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a <code>NextToken</code>. You can specify the <code>NextToken</code> in a subsequent call to get the next set of results.</p>",
-            "description": "<p>Get information about a parameter.</p> <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of <code>MaxResults</code>. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a <code>NextToken</code>. You can specify the <code>NextToken</code> in a subsequent call to get the next set of results.</p>",
+            "title": "DescribeParameters",
+            "description": "Get information about a parameter.\n\nRequest results are returned on a best-effort basis. If you specify MaxResults \nin the request, the response includes information up to the limit specified. The\nnumber of items returned, however, can be between zero and the value of \nMaxResults. If the service reaches an internal limit while processing the\nresults, it stops the operation and returns the matching values up to that point\nand a NextToken. You can specify the NextToken in a subsequent call to get the\nnext set of results.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -871,7 +871,7 @@
         },
         "DescribePatchBaselines": {
             "main": "./lib/actions/DescribePatchBaselines.js",
-            "title": "Lists the patch baselines in your AWS account.",
+            "title": "DescribePatchBaselines",
             "description": "Lists the patch baselines in your AWS account.",
             "fields": {
                 "verbose": {
@@ -888,7 +888,7 @@
         },
         "DescribePatchGroupState": {
             "main": "./lib/actions/DescribePatchGroupState.js",
-            "title": "Returns high-level aggregated patch compliance state for a patch group.",
+            "title": "DescribePatchGroupState",
             "description": "Returns high-level aggregated patch compliance state for a patch group.",
             "fields": {
                 "verbose": {
@@ -905,7 +905,7 @@
         },
         "DescribePatchGroups": {
             "main": "./lib/actions/DescribePatchGroups.js",
-            "title": "Lists all patch groups that have been registered with patch baselines.",
+            "title": "DescribePatchGroups",
             "description": "Lists all patch groups that have been registered with patch baselines.",
             "fields": {
                 "verbose": {
@@ -922,7 +922,7 @@
         },
         "DescribeSessions": {
             "main": "./lib/actions/DescribeSessions.js",
-            "title": "Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30 days.",
+            "title": "DescribeSessions",
             "description": "Retrieves a list of all active sessions (both connected and disconnected) or terminated sessions from the past 30 days.",
             "fields": {
                 "verbose": {
@@ -939,7 +939,7 @@
         },
         "GetAutomationExecution": {
             "main": "./lib/actions/GetAutomationExecution.js",
-            "title": "Get detailed information about a particular Automation execution.",
+            "title": "GetAutomationExecution",
             "description": "Get detailed information about a particular Automation execution.",
             "fields": {
                 "verbose": {
@@ -956,7 +956,7 @@
         },
         "GetCommandInvocation": {
             "main": "./lib/actions/GetCommandInvocation.js",
-            "title": "Returns detailed information about command execution for an invocation or plugin. ",
+            "title": "GetCommandInvocation",
             "description": "Returns detailed information about command execution for an invocation or plugin. ",
             "fields": {
                 "verbose": {
@@ -973,7 +973,7 @@
         },
         "GetConnectionStatus": {
             "main": "./lib/actions/GetConnectionStatus.js",
-            "title": "Retrieves the Session Manager connection status for an instance to determine whether it is connected and ready to receive Session Manager connections.",
+            "title": "GetConnectionStatus",
             "description": "Retrieves the Session Manager connection status for an instance to determine whether it is connected and ready to receive Session Manager connections.",
             "fields": {
                 "verbose": {
@@ -990,8 +990,8 @@
         },
         "GetDefaultPatchBaseline": {
             "main": "./lib/actions/GetDefaultPatchBaseline.js",
-            "title": "<p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.</p> <p>If you do not specify an operating system value, the default patch baseline for Windows is returned.</p>",
-            "description": "<p>Retrieves the default patch baseline. Note that Systems Manager supports creating multiple default patch baselines. For example, you can create a default patch baseline for each operating system.</p> <p>If you do not specify an operating system value, the default patch baseline for Windows is returned.</p>",
+            "title": "GetDefaultPatchBaseline",
+            "description": "Retrieves the default patch baseline. Note that Systems Manager supports\ncreating multiple default patch baselines. For example, you can create a default\npatch baseline for each operating system.\n\nIf you do not specify an operating system value, the default patch baseline for\nWindows is returned.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1007,7 +1007,7 @@
         },
         "GetDeployablePatchSnapshotForInstance": {
             "main": "./lib/actions/GetDeployablePatchSnapshotForInstance.js",
-            "title": "Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document. ",
+            "title": "GetDeployablePatchSnapshotForInstance",
             "description": "Retrieves the current snapshot for the patch baseline the instance uses. This API is primarily used by the AWS-RunPatchBaseline Systems Manager document. ",
             "fields": {
                 "verbose": {
@@ -1024,7 +1024,7 @@
         },
         "GetDocument": {
             "main": "./lib/actions/GetDocument.js",
-            "title": "Gets the contents of the specified Systems Manager document.",
+            "title": "GetDocument",
             "description": "Gets the contents of the specified Systems Manager document.",
             "fields": {
                 "verbose": {
@@ -1041,7 +1041,7 @@
         },
         "GetInventory": {
             "main": "./lib/actions/GetInventory.js",
-            "title": "Query inventory information.",
+            "title": "GetInventory",
             "description": "Query inventory information.",
             "fields": {
                 "verbose": {
@@ -1058,7 +1058,7 @@
         },
         "GetInventorySchema": {
             "main": "./lib/actions/GetInventorySchema.js",
-            "title": "Return a list of inventory type names for the account, or return a list of attribute names for a specific Inventory item type. ",
+            "title": "GetInventorySchema",
             "description": "Return a list of inventory type names for the account, or return a list of attribute names for a specific Inventory item type. ",
             "fields": {
                 "verbose": {
@@ -1075,7 +1075,7 @@
         },
         "GetMaintenanceWindow": {
             "main": "./lib/actions/GetMaintenanceWindow.js",
-            "title": "Retrieves a Maintenance Window.",
+            "title": "GetMaintenanceWindow",
             "description": "Retrieves a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -1092,7 +1092,7 @@
         },
         "GetMaintenanceWindowExecution": {
             "main": "./lib/actions/GetMaintenanceWindowExecution.js",
-            "title": "Retrieves details about a specific task executed as part of a Maintenance Window execution.",
+            "title": "GetMaintenanceWindowExecution",
             "description": "Retrieves details about a specific task executed as part of a Maintenance Window execution.",
             "fields": {
                 "verbose": {
@@ -1109,7 +1109,7 @@
         },
         "GetMaintenanceWindowExecutionTask": {
             "main": "./lib/actions/GetMaintenanceWindowExecutionTask.js",
-            "title": "Retrieves the details about a specific task executed as part of a Maintenance Window execution.",
+            "title": "GetMaintenanceWindowExecutionTask",
             "description": "Retrieves the details about a specific task executed as part of a Maintenance Window execution.",
             "fields": {
                 "verbose": {
@@ -1126,7 +1126,7 @@
         },
         "GetMaintenanceWindowExecutionTaskInvocation": {
             "main": "./lib/actions/GetMaintenanceWindowExecutionTaskInvocation.js",
-            "title": "Retrieves a task invocation. A task invocation is a specific task executing on a specific target. Maintenance Windows report status for all invocations. ",
+            "title": "GetMaintenanceWindowExecutionTaskInvocation",
             "description": "Retrieves a task invocation. A task invocation is a specific task executing on a specific target. Maintenance Windows report status for all invocations. ",
             "fields": {
                 "verbose": {
@@ -1143,7 +1143,7 @@
         },
         "GetMaintenanceWindowTask": {
             "main": "./lib/actions/GetMaintenanceWindowTask.js",
-            "title": "Lists the tasks in a Maintenance Window.",
+            "title": "GetMaintenanceWindowTask",
             "description": "Lists the tasks in a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -1160,7 +1160,7 @@
         },
         "GetParameter": {
             "main": "./lib/actions/GetParameter.js",
-            "title": "Get information about a parameter by using the parameter name. Don't confuse this API action with the <a>GetParameters</a> API action.",
+            "title": "GetParameter",
             "description": "Get information about a parameter by using the parameter name. Don't confuse this API action with the <a>GetParameters</a> API action.",
             "fields": {
                 "verbose": {
@@ -1177,7 +1177,7 @@
         },
         "GetParameterHistory": {
             "main": "./lib/actions/GetParameterHistory.js",
-            "title": "Query a list of all parameters used by the AWS account.",
+            "title": "GetParameterHistory",
             "description": "Query a list of all parameters used by the AWS account.",
             "fields": {
                 "verbose": {
@@ -1194,7 +1194,7 @@
         },
         "GetParameters": {
             "main": "./lib/actions/GetParameters.js",
-            "title": "Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a> API action.",
+            "title": "GetParameters",
             "description": "Get details of a parameter. Don't confuse this API action with the <a>GetParameter</a> API action.",
             "fields": {
                 "verbose": {
@@ -1211,8 +1211,8 @@
         },
         "GetParametersByPath": {
             "main": "./lib/actions/GetParametersByPath.js",
-            "title": "<p>Retrieve parameters in a specific hierarchy. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>. </p> <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of <code>MaxResults</code>. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a <code>NextToken</code>. You can specify the <code>NextToken</code> in a subsequent call to get the next set of results.</p> <note> <p>This API action doesn't support filtering by tags. </p> </note>",
-            "description": "<p>Retrieve parameters in a specific hierarchy. For more information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html\">Working with Systems Manager Parameters</a> in the <i>AWS Systems Manager User Guide</i>. </p> <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code> in the request, the response includes information up to the limit specified. The number of items returned, however, can be between zero and the value of <code>MaxResults</code>. If the service reaches an internal limit while processing the results, it stops the operation and returns the matching values up to that point and a <code>NextToken</code>. You can specify the <code>NextToken</code> in a subsequent call to get the next set of results.</p> <note> <p>This API action doesn't support filtering by tags. </p> </note>",
+            "title": "GetParametersByPath",
+            "description": "Retrieve parameters in a specific hierarchy. For more information, see Working\nwith Systems Manager Parameters\n[http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html] \nin the AWS Systems Manager User Guide. \n\nRequest results are returned on a best-effort basis. If you specify MaxResults \nin the request, the response includes information up to the limit specified. The\nnumber of items returned, however, can be between zero and the value of \nMaxResults. If the service reaches an internal limit while processing the\nresults, it stops the operation and returns the matching values up to that point\nand a NextToken. You can specify the NextToken in a subsequent call to get the\nnext set of results.\n\nThis API action doesn't support filtering by tags.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1228,7 +1228,7 @@
         },
         "GetPatchBaseline": {
             "main": "./lib/actions/GetPatchBaseline.js",
-            "title": "Retrieves information about a patch baseline.",
+            "title": "GetPatchBaseline",
             "description": "Retrieves information about a patch baseline.",
             "fields": {
                 "verbose": {
@@ -1245,7 +1245,7 @@
         },
         "GetPatchBaselineForPatchGroup": {
             "main": "./lib/actions/GetPatchBaselineForPatchGroup.js",
-            "title": "Retrieves the patch baseline that should be used for the specified patch group.",
+            "title": "GetPatchBaselineForPatchGroup",
             "description": "Retrieves the patch baseline that should be used for the specified patch group.",
             "fields": {
                 "verbose": {
@@ -1262,8 +1262,8 @@
         },
         "GetServiceSetting": {
             "main": "./lib/actions/GetServiceSetting.js",
-            "title": "<p> <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of \"false\". This means the user can't use this feature unless they change the setting to \"true\" and intentionally opt in for a paid feature.</p> <p>Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>UpdateServiceSetting</a> API action to change the default setting. Or use the <a>ResetServiceSetting</a> to change the value back to the original value defined by the AWS service team.</p> <p>Query the current service setting for the account. </p>",
-            "description": "<p> <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of \"false\". This means the user can't use this feature unless they change the setting to \"true\" and intentionally opt in for a paid feature.</p> <p>Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>UpdateServiceSetting</a> API action to change the default setting. Or use the <a>ResetServiceSetting</a> to change the value back to the original value defined by the AWS service team.</p> <p>Query the current service setting for the account. </p>",
+            "title": "GetServiceSetting",
+            "description": " ServiceSetting is an account-level setting for an AWS service. This setting\ndefines how a user interacts with or uses a service or a feature of a service.\nFor example, if an AWS service charges money to the account based on feature or\nservice usage, then the AWS service team might create a default setting of\n\"false\". This means the user can't use this feature unless they change the\nsetting to \"true\" and intentionally opt in for a paid feature.\n\nServices map a SettingId object to a setting value. AWS services teams define\nthe default value for a SettingId. You can't create a new SettingId, but you can\noverwrite the default value if you have the ssm:UpdateServiceSetting permission\nfor the setting. Use the UpdateServiceSetting API action to change the default\nsetting. Or use the ResetServiceSetting to change the value back to the original\nvalue defined by the AWS service team.\n\nQuery the current service setting for the account.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1279,8 +1279,8 @@
         },
         "LabelParameterVersion": {
             "main": "./lib/actions/LabelParameterVersion.js",
-            "title": "<p>A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a parameter, Systems Manager automatically saves a new version and increments the version number by one. A label can help you remember the purpose of a parameter when there are multiple versions. </p> <p>Parameter labels have the following requirements and restrictions.</p> <ul> <li> <p>A version of a parameter can have a maximum of 10 labels.</p> </li> <li> <p>You can't attach the same label to different versions of the same parameter. For example, if version 1 has the label Production, then you can't attach Production to version 2.</p> </li> <li> <p>You can move a label from one version of a parameter to another.</p> </li> <li> <p>You can't create a label when you create a new parameter. You must attach a label to a specific version of a parameter.</p> </li> <li> <p>You can't delete a parameter label. If you no longer want to use a parameter label, then you must move it to a different version of a parameter.</p> </li> <li> <p>A label can have a maximum of 100 characters.</p> </li> <li> <p>Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or underscores (_).</p> </li> <li> <p>Labels can't begin with a number, \"aws,\" or \"ssm\" (not case sensitive). If a label fails to meet these requirements, then the label is not associated with a parameter and the system displays it in the list of InvalidLabels.</p> </li> </ul>",
-            "description": "<p>A parameter label is a user-defined alias to help you manage different versions of a parameter. When you modify a parameter, Systems Manager automatically saves a new version and increments the version number by one. A label can help you remember the purpose of a parameter when there are multiple versions. </p> <p>Parameter labels have the following requirements and restrictions.</p> <ul> <li> <p>A version of a parameter can have a maximum of 10 labels.</p> </li> <li> <p>You can't attach the same label to different versions of the same parameter. For example, if version 1 has the label Production, then you can't attach Production to version 2.</p> </li> <li> <p>You can move a label from one version of a parameter to another.</p> </li> <li> <p>You can't create a label when you create a new parameter. You must attach a label to a specific version of a parameter.</p> </li> <li> <p>You can't delete a parameter label. If you no longer want to use a parameter label, then you must move it to a different version of a parameter.</p> </li> <li> <p>A label can have a maximum of 100 characters.</p> </li> <li> <p>Labels can contain letters (case sensitive), numbers, periods (.), hyphens (-), or underscores (_).</p> </li> <li> <p>Labels can't begin with a number, \"aws,\" or \"ssm\" (not case sensitive). If a label fails to meet these requirements, then the label is not associated with a parameter and the system displays it in the list of InvalidLabels.</p> </li> </ul>",
+            "title": "LabelParameterVersion",
+            "description": "A parameter label is a user-defined alias to help you manage different versions\nof a parameter. When you modify a parameter, Systems Manager automatically saves\na new version and increments the version number by one. A label can help you\nremember the purpose of a parameter when there are multiple versions. \n\nParameter labels have the following requirements and restrictions.\n\n *  A version of a parameter can have a maximum of 10 labels.\n   \n   \n *  You can't attach the same label to different versions of the same parameter.\n   For example, if version 1 has the label Production, then you can't attach\n   Production to version 2.\n   \n   \n *  You can move a label from one version of a parameter to another.\n   \n   \n *  You can't create a label when you create a new parameter. You must attach a\n   label to a specific version of a parameter.\n   \n   \n *  You can't delete a parameter label. If you no longer want to use a parameter\n   label, then you must move it to a different version of a parameter.\n   \n   \n *  A label can have a maximum of 100 characters.\n   \n   \n *  Labels can contain letters (case sensitive), numbers, periods (.), hyphens\n   (-), or underscores (_).\n   \n   \n *  Labels can't begin with a number, \"aws,\" or \"ssm\" (not case sensitive). If a\n   label fails to meet these requirements, then the label is not associated with\n   a parameter and the system displays it in the list of InvalidLabels.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1296,7 +1296,7 @@
         },
         "ListAssociationVersions": {
             "main": "./lib/actions/ListAssociationVersions.js",
-            "title": "Retrieves all versions of an association for a specific association ID.",
+            "title": "ListAssociationVersions",
             "description": "Retrieves all versions of an association for a specific association ID.",
             "fields": {
                 "verbose": {
@@ -1313,7 +1313,7 @@
         },
         "ListAssociations": {
             "main": "./lib/actions/ListAssociations.js",
-            "title": "Lists the associations for the specified Systems Manager document or instance.",
+            "title": "ListAssociations",
             "description": "Lists the associations for the specified Systems Manager document or instance.",
             "fields": {
                 "verbose": {
@@ -1330,7 +1330,7 @@
         },
         "ListCommandInvocations": {
             "main": "./lib/actions/ListCommandInvocations.js",
-            "title": "An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. ListCommandInvocations provide status about command execution.",
+            "title": "ListCommandInvocations",
             "description": "An invocation is copy of a command sent to a specific instance. A command can apply to one or more instances. A command invocation applies to one instance. For example, if a user executes SendCommand against three instances, then a command invocation is created for each requested instance ID. ListCommandInvocations provide status about command execution.",
             "fields": {
                 "verbose": {
@@ -1347,7 +1347,7 @@
         },
         "ListCommands": {
             "main": "./lib/actions/ListCommands.js",
-            "title": "Lists the commands requested by users of the AWS account.",
+            "title": "ListCommands",
             "description": "Lists the commands requested by users of the AWS account.",
             "fields": {
                 "verbose": {
@@ -1364,7 +1364,7 @@
         },
         "ListComplianceItems": {
             "main": "./lib/actions/ListComplianceItems.js",
-            "title": "For a specified resource ID, this API action returns a list of compliance statuses for different resource types. Currently, you can only specify one resource ID per call. List results depend on the criteria specified in the filter. ",
+            "title": "ListComplianceItems",
             "description": "For a specified resource ID, this API action returns a list of compliance statuses for different resource types. Currently, you can only specify one resource ID per call. List results depend on the criteria specified in the filter. ",
             "fields": {
                 "verbose": {
@@ -1381,7 +1381,7 @@
         },
         "ListComplianceSummaries": {
             "main": "./lib/actions/ListComplianceSummaries.js",
-            "title": "Returns a summary count of compliant and non-compliant resources for a compliance type. For example, this call can return State Manager associations, patches, or custom compliance types according to the filter criteria that you specify. ",
+            "title": "ListComplianceSummaries",
             "description": "Returns a summary count of compliant and non-compliant resources for a compliance type. For example, this call can return State Manager associations, patches, or custom compliance types according to the filter criteria that you specify. ",
             "fields": {
                 "verbose": {
@@ -1398,7 +1398,7 @@
         },
         "ListDocumentVersions": {
             "main": "./lib/actions/ListDocumentVersions.js",
-            "title": "List all versions for a document.",
+            "title": "ListDocumentVersions",
             "description": "List all versions for a document.",
             "fields": {
                 "verbose": {
@@ -1415,7 +1415,7 @@
         },
         "ListDocuments": {
             "main": "./lib/actions/ListDocuments.js",
-            "title": "Describes one or more of your Systems Manager documents.",
+            "title": "ListDocuments",
             "description": "Describes one or more of your Systems Manager documents.",
             "fields": {
                 "verbose": {
@@ -1432,7 +1432,7 @@
         },
         "ListInventoryEntries": {
             "main": "./lib/actions/ListInventoryEntries.js",
-            "title": "A list of inventory items returned by the request.",
+            "title": "ListInventoryEntries",
             "description": "A list of inventory items returned by the request.",
             "fields": {
                 "verbose": {
@@ -1449,7 +1449,7 @@
         },
         "ListResourceComplianceSummaries": {
             "main": "./lib/actions/ListResourceComplianceSummaries.js",
-            "title": "Returns a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts, according to the filter criteria you specify.",
+            "title": "ListResourceComplianceSummaries",
             "description": "Returns a resource-level summary count. The summary includes information about compliant and non-compliant statuses and detailed compliance-item severity counts, according to the filter criteria you specify.",
             "fields": {
                 "verbose": {
@@ -1466,8 +1466,8 @@
         },
         "ListResourceDataSync": {
             "main": "./lib/actions/ListResourceDataSync.js",
-            "title": "<p>Lists your resource data sync configurations. Includes information about the last time a sync attempted to start, the last sync status, and the last time a sync successfully completed.</p> <p>The number of sync configurations might be too large to return using a single call to <code>ListResourceDataSync</code>. You can limit the number of sync configurations returned by using the <code>MaxResults</code> parameter. To determine whether there are more sync configurations to list, check the value of <code>NextToken</code> in the output. If there are more sync configurations to list, you can request them by specifying the <code>NextToken</code> returned in the call to the parameter of a subsequent call. </p>",
-            "description": "<p>Lists your resource data sync configurations. Includes information about the last time a sync attempted to start, the last sync status, and the last time a sync successfully completed.</p> <p>The number of sync configurations might be too large to return using a single call to <code>ListResourceDataSync</code>. You can limit the number of sync configurations returned by using the <code>MaxResults</code> parameter. To determine whether there are more sync configurations to list, check the value of <code>NextToken</code> in the output. If there are more sync configurations to list, you can request them by specifying the <code>NextToken</code> returned in the call to the parameter of a subsequent call. </p>",
+            "title": "ListResourceDataSync",
+            "description": "Lists your resource data sync configurations. Includes information about the\nlast time a sync attempted to start, the last sync status, and the last time a\nsync successfully completed.\n\nThe number of sync configurations might be too large to return using a single\ncall to ListResourceDataSync. You can limit the number of sync configurations\nreturned by using the MaxResults parameter. To determine whether there are more\nsync configurations to list, check the value of NextToken in the output. If\nthere are more sync configurations to list, you can request them by specifying\nthe NextToken returned in the call to the parameter of a subsequent call.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1483,7 +1483,7 @@
         },
         "ListTagsForResource": {
             "main": "./lib/actions/ListTagsForResource.js",
-            "title": "Returns a list of the tags assigned to the specified resource.",
+            "title": "ListTagsForResource",
             "description": "Returns a list of the tags assigned to the specified resource.",
             "fields": {
                 "verbose": {
@@ -1500,7 +1500,7 @@
         },
         "ModifyDocumentPermission": {
             "main": "./lib/actions/ModifyDocumentPermission.js",
-            "title": "Shares a Systems Manager document publicly or privately. If you share a document privately, you must specify the AWS user account IDs for those people who can use the document. If you share a document publicly, you must specify <i>All</i> as the account ID.",
+            "title": "ModifyDocumentPermission",
             "description": "Shares a Systems Manager document publicly or privately. If you share a document privately, you must specify the AWS user account IDs for those people who can use the document. If you share a document publicly, you must specify <i>All</i> as the account ID.",
             "fields": {
                 "verbose": {
@@ -1517,8 +1517,8 @@
         },
         "PutComplianceItems": {
             "main": "./lib/actions/PutComplianceItems.js",
-            "title": "<p>Registers a compliance type and other compliance details on a designated resource. This action lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request.</p> <p>ComplianceType can be one of the following:</p> <ul> <li> <p>ExecutionId: The execution ID when the patch, association, or custom compliance item was applied.</p> </li> <li> <p>ExecutionType: Specify patch, association, or Custom:<code>string</code>.</p> </li> <li> <p>ExecutionTime. The time the patch, association, or custom compliance item was applied to the instance.</p> </li> <li> <p>Id: The patch, association, or custom compliance ID.</p> </li> <li> <p>Title: A title.</p> </li> <li> <p>Status: The status of the compliance item. For example, <code>approved</code> for patches, or <code>Failed</code> for associations.</p> </li> <li> <p>Severity: A patch severity. For example, <code>critical</code>.</p> </li> <li> <p>DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.</p> </li> <li> <p>DocumentVersion: An SSM document version number. For example, 4.</p> </li> <li> <p>Classification: A patch classification. For example, <code>security updates</code>.</p> </li> <li> <p>PatchBaselineId: A patch baseline ID.</p> </li> <li> <p>PatchSeverity: A patch severity. For example, <code>Critical</code>.</p> </li> <li> <p>PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.</p> </li> <li> <p>PatchGroup: The name of a patch group.</p> </li> <li> <p>InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p> </li> </ul>",
-            "description": "<p>Registers a compliance type and other compliance details on a designated resource. This action lets you register custom compliance details with a resource. This call overwrites existing compliance information on the resource, so you must provide a full list of compliance items each time that you send the request.</p> <p>ComplianceType can be one of the following:</p> <ul> <li> <p>ExecutionId: The execution ID when the patch, association, or custom compliance item was applied.</p> </li> <li> <p>ExecutionType: Specify patch, association, or Custom:<code>string</code>.</p> </li> <li> <p>ExecutionTime. The time the patch, association, or custom compliance item was applied to the instance.</p> </li> <li> <p>Id: The patch, association, or custom compliance ID.</p> </li> <li> <p>Title: A title.</p> </li> <li> <p>Status: The status of the compliance item. For example, <code>approved</code> for patches, or <code>Failed</code> for associations.</p> </li> <li> <p>Severity: A patch severity. For example, <code>critical</code>.</p> </li> <li> <p>DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.</p> </li> <li> <p>DocumentVersion: An SSM document version number. For example, 4.</p> </li> <li> <p>Classification: A patch classification. For example, <code>security updates</code>.</p> </li> <li> <p>PatchBaselineId: A patch baseline ID.</p> </li> <li> <p>PatchSeverity: A patch severity. For example, <code>Critical</code>.</p> </li> <li> <p>PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.</p> </li> <li> <p>PatchGroup: The name of a patch group.</p> </li> <li> <p>InstalledTime: The time the association, patch, or custom compliance item was applied to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p> </li> </ul>",
+            "title": "PutComplianceItems",
+            "description": "Registers a compliance type and other compliance details on a designated\nresource. This action lets you register custom compliance details with a\nresource. This call overwrites existing compliance information on the resource,\nso you must provide a full list of compliance items each time that you send the\nrequest.\n\nComplianceType can be one of the following:\n\n *  ExecutionId: The execution ID when the patch, association, or custom\n   compliance item was applied.\n   \n   \n *  ExecutionType: Specify patch, association, or Custom:string.\n   \n   \n *  ExecutionTime. The time the patch, association, or custom compliance item\n   was applied to the instance.\n   \n   \n *  Id: The patch, association, or custom compliance ID.\n   \n   \n *  Title: A title.\n   \n   \n *  Status: The status of the compliance item. For example, approved for patches,\n   or Failed for associations.\n   \n   \n *  Severity: A patch severity. For example, critical.\n   \n   \n *  DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.\n   \n   \n *  DocumentVersion: An SSM document version number. For example, 4.\n   \n   \n *  Classification: A patch classification. For example, security updates.\n   \n   \n *  PatchBaselineId: A patch baseline ID.\n   \n   \n *  PatchSeverity: A patch severity. For example, Critical.\n   \n   \n *  PatchState: A patch state. For example, InstancesWithFailedPatches.\n   \n   \n *  PatchGroup: The name of a patch group.\n   \n   \n *  InstalledTime: The time the association, patch, or custom compliance item\n   was applied to the resource. Specify the time by using the following format:\n   yyyy-MM-dd'T'HH:mm:ss'Z'",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1534,7 +1534,7 @@
         },
         "PutInventory": {
             "main": "./lib/actions/PutInventory.js",
-            "title": "Bulk update custom inventory items on one more instance. The request adds an inventory item, if it doesn't already exist, or updates an inventory item, if it does exist.",
+            "title": "PutInventory",
             "description": "Bulk update custom inventory items on one more instance. The request adds an inventory item, if it doesn't already exist, or updates an inventory item, if it does exist.",
             "fields": {
                 "verbose": {
@@ -1551,7 +1551,7 @@
         },
         "PutParameter": {
             "main": "./lib/actions/PutParameter.js",
-            "title": "Add a parameter to the system.",
+            "title": "PutParameter",
             "description": "Add a parameter to the system.",
             "fields": {
                 "verbose": {
@@ -1568,7 +1568,7 @@
         },
         "RegisterDefaultPatchBaseline": {
             "main": "./lib/actions/RegisterDefaultPatchBaseline.js",
-            "title": "Defines the default patch baseline.",
+            "title": "RegisterDefaultPatchBaseline",
             "description": "Defines the default patch baseline.",
             "fields": {
                 "verbose": {
@@ -1585,7 +1585,7 @@
         },
         "RegisterPatchBaselineForPatchGroup": {
             "main": "./lib/actions/RegisterPatchBaselineForPatchGroup.js",
-            "title": "Registers a patch baseline for a patch group.",
+            "title": "RegisterPatchBaselineForPatchGroup",
             "description": "Registers a patch baseline for a patch group.",
             "fields": {
                 "verbose": {
@@ -1602,7 +1602,7 @@
         },
         "RegisterTargetWithMaintenanceWindow": {
             "main": "./lib/actions/RegisterTargetWithMaintenanceWindow.js",
-            "title": "Registers a target with a Maintenance Window.",
+            "title": "RegisterTargetWithMaintenanceWindow",
             "description": "Registers a target with a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -1619,7 +1619,7 @@
         },
         "RegisterTaskWithMaintenanceWindow": {
             "main": "./lib/actions/RegisterTaskWithMaintenanceWindow.js",
-            "title": "Adds a new task to a Maintenance Window.",
+            "title": "RegisterTaskWithMaintenanceWindow",
             "description": "Adds a new task to a Maintenance Window.",
             "fields": {
                 "verbose": {
@@ -1636,7 +1636,7 @@
         },
         "RemoveTagsFromResource": {
             "main": "./lib/actions/RemoveTagsFromResource.js",
-            "title": "Removes all tags from the specified resource.",
+            "title": "RemoveTagsFromResource",
             "description": "Removes all tags from the specified resource.",
             "fields": {
                 "verbose": {
@@ -1653,8 +1653,8 @@
         },
         "ResetServiceSetting": {
             "main": "./lib/actions/ResetServiceSetting.js",
-            "title": "<p> <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of \"false\". This means the user can't use this feature unless they change the setting to \"true\" and intentionally opt in for a paid feature.</p> <p>Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>GetServiceSetting</a> API action to view the current value. Use the <a>UpdateServiceSetting</a> API action to change the default setting. </p> <p>Reset the service setting for the account to the default value as provisioned by the AWS service team. </p>",
-            "description": "<p> <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of \"false\". This means the user can't use this feature unless they change the setting to \"true\" and intentionally opt in for a paid feature.</p> <p>Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>GetServiceSetting</a> API action to view the current value. Use the <a>UpdateServiceSetting</a> API action to change the default setting. </p> <p>Reset the service setting for the account to the default value as provisioned by the AWS service team. </p>",
+            "title": "ResetServiceSetting",
+            "description": " ServiceSetting is an account-level setting for an AWS service. This setting\ndefines how a user interacts with or uses a service or a feature of a service.\nFor example, if an AWS service charges money to the account based on feature or\nservice usage, then the AWS service team might create a default setting of\n\"false\". This means the user can't use this feature unless they change the\nsetting to \"true\" and intentionally opt in for a paid feature.\n\nServices map a SettingId object to a setting value. AWS services teams define\nthe default value for a SettingId. You can't create a new SettingId, but you can\noverwrite the default value if you have the ssm:UpdateServiceSetting permission\nfor the setting. Use the GetServiceSetting API action to view the current value.\nUse the UpdateServiceSetting API action to change the default setting. \n\nReset the service setting for the account to the default value as provisioned by\nthe AWS service team.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1670,8 +1670,8 @@
         },
         "ResumeSession": {
             "main": "./lib/actions/ResumeSession.js",
-            "title": "<p>Reconnects a session to an instance after it has been disconnected. Connections can be resumed for disconnected sessions, but not terminated sessions.</p> <note> <p>This command is primarily for use by client machines to automatically reconnect during intermittent network issues. It is not intended for any other use.</p> </note>",
-            "description": "<p>Reconnects a session to an instance after it has been disconnected. Connections can be resumed for disconnected sessions, but not terminated sessions.</p> <note> <p>This command is primarily for use by client machines to automatically reconnect during intermittent network issues. It is not intended for any other use.</p> </note>",
+            "title": "ResumeSession",
+            "description": "Reconnects a session to an instance after it has been disconnected. Connections\ncan be resumed for disconnected sessions, but not terminated sessions.\n\nThis command is primarily for use by client machines to automatically reconnect\nduring intermittent network issues. It is not intended for any other use.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1687,7 +1687,7 @@
         },
         "SendAutomationSignal": {
             "main": "./lib/actions/SendAutomationSignal.js",
-            "title": "Sends a signal to an Automation execution to change the current behavior or status of the execution. ",
+            "title": "SendAutomationSignal",
             "description": "Sends a signal to an Automation execution to change the current behavior or status of the execution. ",
             "fields": {
                 "verbose": {
@@ -1704,7 +1704,7 @@
         },
         "SendCommand": {
             "main": "./lib/actions/SendCommand.js",
-            "title": "Executes commands on one or more managed instances.",
+            "title": "SendCommand",
             "description": "Executes commands on one or more managed instances.",
             "fields": {
                 "verbose": {
@@ -1721,7 +1721,7 @@
         },
         "StartAssociationsOnce": {
             "main": "./lib/actions/StartAssociationsOnce.js",
-            "title": "Use this API action to execute an association immediately and only one time. This action can be helpful when troubleshooting associations.",
+            "title": "StartAssociationsOnce",
             "description": "Use this API action to execute an association immediately and only one time. This action can be helpful when troubleshooting associations.",
             "fields": {
                 "verbose": {
@@ -1738,7 +1738,7 @@
         },
         "StartAutomationExecution": {
             "main": "./lib/actions/StartAutomationExecution.js",
-            "title": "Initiates execution of an Automation document.",
+            "title": "StartAutomationExecution",
             "description": "Initiates execution of an Automation document.",
             "fields": {
                 "verbose": {
@@ -1755,8 +1755,8 @@
         },
         "StartSession": {
             "main": "./lib/actions/StartSession.js",
-            "title": "<p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a URL and token that can be used to open a WebSocket connection for sending input and receiving outputs.</p> <note> <p>AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager plugin to be installed on the client machine making the call. For information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html\"> Install the Session Manager Plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p> </note>",
-            "description": "<p>Initiates a connection to a target (for example, an instance) for a Session Manager session. Returns a URL and token that can be used to open a WebSocket connection for sending input and receiving outputs.</p> <note> <p>AWS CLI usage: <code>start-session</code> is an interactive command that requires the Session Manager plugin to be installed on the client machine making the call. For information, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html\"> Install the Session Manager Plugin for the AWS CLI</a> in the <i>AWS Systems Manager User Guide</i>.</p> </note>",
+            "title": "StartSession",
+            "description": "Initiates a connection to a target (for example, an instance) for a Session\nManager session. Returns a URL and token that can be used to open a WebSocket\nconnection for sending input and receiving outputs.\n\nAWS CLI usage: start-session is an interactive command that requires the Session\nManager plugin to be installed on the client machine making the call. For\ninformation, see Install the Session Manager Plugin for the AWS CLI\n[http://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html] \nin the AWS Systems Manager User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1772,7 +1772,7 @@
         },
         "StopAutomationExecution": {
             "main": "./lib/actions/StopAutomationExecution.js",
-            "title": "Stop an Automation that is currently executing.",
+            "title": "StopAutomationExecution",
             "description": "Stop an Automation that is currently executing.",
             "fields": {
                 "verbose": {
@@ -1789,7 +1789,7 @@
         },
         "TerminateSession": {
             "main": "./lib/actions/TerminateSession.js",
-            "title": "Permanently ends a session and closes the data connection between the Session Manager client and SSM Agent on the instance. A terminated session cannot be resumed.",
+            "title": "TerminateSession",
             "description": "Permanently ends a session and closes the data connection between the Session Manager client and SSM Agent on the instance. A terminated session cannot be resumed.",
             "fields": {
                 "verbose": {
@@ -1806,7 +1806,7 @@
         },
         "UpdateAssociation": {
             "main": "./lib/actions/UpdateAssociation.js",
-            "title": "Updates an association. You can update the association name and version, the document version, schedule, parameters, and Amazon S3 output.",
+            "title": "UpdateAssociation",
             "description": "Updates an association. You can update the association name and version, the document version, schedule, parameters, and Amazon S3 output.",
             "fields": {
                 "verbose": {
@@ -1823,7 +1823,7 @@
         },
         "UpdateAssociationStatus": {
             "main": "./lib/actions/UpdateAssociationStatus.js",
-            "title": "Updates the status of the Systems Manager document associated with the specified instance.",
+            "title": "UpdateAssociationStatus",
             "description": "Updates the status of the Systems Manager document associated with the specified instance.",
             "fields": {
                 "verbose": {
@@ -1840,7 +1840,7 @@
         },
         "UpdateDocument": {
             "main": "./lib/actions/UpdateDocument.js",
-            "title": "The document you want to update.",
+            "title": "UpdateDocument",
             "description": "The document you want to update.",
             "fields": {
                 "verbose": {
@@ -1857,7 +1857,7 @@
         },
         "UpdateDocumentDefaultVersion": {
             "main": "./lib/actions/UpdateDocumentDefaultVersion.js",
-            "title": "Set the default version of a document. ",
+            "title": "UpdateDocumentDefaultVersion",
             "description": "Set the default version of a document. ",
             "fields": {
                 "verbose": {
@@ -1874,7 +1874,7 @@
         },
         "UpdateMaintenanceWindow": {
             "main": "./lib/actions/UpdateMaintenanceWindow.js",
-            "title": "Updates an existing Maintenance Window. Only specified parameters are modified.",
+            "title": "UpdateMaintenanceWindow",
             "description": "Updates an existing Maintenance Window. Only specified parameters are modified.",
             "fields": {
                 "verbose": {
@@ -1891,8 +1891,8 @@
         },
         "UpdateMaintenanceWindowTarget": {
             "main": "./lib/actions/UpdateMaintenanceWindowTarget.js",
-            "title": "<p>Modifies the target of an existing Maintenance Window. You can't change the target type, but you can change the following:</p> <p>The target from being an ID target to a Tag target, or a Tag target to an ID target.</p> <p>IDs for an ID target.</p> <p>Tags for a Tag target.</p> <p>Owner.</p> <p>Name.</p> <p>Description.</p> <p>If a parameter is null, then the corresponding field is not modified.</p>",
-            "description": "<p>Modifies the target of an existing Maintenance Window. You can't change the target type, but you can change the following:</p> <p>The target from being an ID target to a Tag target, or a Tag target to an ID target.</p> <p>IDs for an ID target.</p> <p>Tags for a Tag target.</p> <p>Owner.</p> <p>Name.</p> <p>Description.</p> <p>If a parameter is null, then the corresponding field is not modified.</p>",
+            "title": "UpdateMaintenanceWindowTarget",
+            "description": "Modifies the target of an existing Maintenance Window. You can't change the\ntarget type, but you can change the following:\n\nThe target from being an ID target to a Tag target, or a Tag target to an ID\ntarget.\n\nIDs for an ID target.\n\nTags for a Tag target.\n\nOwner.\n\nName.\n\nDescription.\n\nIf a parameter is null, then the corresponding field is not modified.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1908,8 +1908,8 @@
         },
         "UpdateMaintenanceWindowTask": {
             "main": "./lib/actions/UpdateMaintenanceWindowTask.js",
-            "title": "<p>Modifies a task assigned to a Maintenance Window. You can't change the task type, but you can change the following values:</p> <ul> <li> <p>TaskARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript to AWS-RunShellScript.</p> </li> <li> <p>ServiceRoleArn</p> </li> <li> <p>TaskInvocationParameters</p> </li> <li> <p>Priority</p> </li> <li> <p>MaxConcurrency</p> </li> <li> <p>MaxErrors</p> </li> </ul> <p>If a parameter is null, then the corresponding field is not modified. Also, if you set Replace to true, then all fields required by the <a>RegisterTaskWithMaintenanceWindow</a> action are required for this request. Optional fields that aren't specified are set to null.</p>",
-            "description": "<p>Modifies a task assigned to a Maintenance Window. You can't change the task type, but you can change the following values:</p> <ul> <li> <p>TaskARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript to AWS-RunShellScript.</p> </li> <li> <p>ServiceRoleArn</p> </li> <li> <p>TaskInvocationParameters</p> </li> <li> <p>Priority</p> </li> <li> <p>MaxConcurrency</p> </li> <li> <p>MaxErrors</p> </li> </ul> <p>If a parameter is null, then the corresponding field is not modified. Also, if you set Replace to true, then all fields required by the <a>RegisterTaskWithMaintenanceWindow</a> action are required for this request. Optional fields that aren't specified are set to null.</p>",
+            "title": "UpdateMaintenanceWindowTask",
+            "description": "Modifies a task assigned to a Maintenance Window. You can't change the task\ntype, but you can change the following values:\n\n *  TaskARN. For example, you can change a RUN_COMMAND task from\n   AWS-RunPowerShellScript to AWS-RunShellScript.\n   \n   \n *  ServiceRoleArn\n   \n   \n *  TaskInvocationParameters\n   \n   \n *  Priority\n   \n   \n *  MaxConcurrency\n   \n   \n *  MaxErrors\n   \n   \n\nIf a parameter is null, then the corresponding field is not modified. Also, if\nyou set Replace to true, then all fields required by the \nRegisterTaskWithMaintenanceWindow action are required for this request. Optional\nfields that aren't specified are set to null.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1925,7 +1925,7 @@
         },
         "UpdateManagedInstanceRole": {
             "main": "./lib/actions/UpdateManagedInstanceRole.js",
-            "title": "Assigns or changes an Amazon Identity and Access Management (IAM) role to the managed instance.",
+            "title": "UpdateManagedInstanceRole",
             "description": "Assigns or changes an Amazon Identity and Access Management (IAM) role to the managed instance.",
             "fields": {
                 "verbose": {
@@ -1942,8 +1942,8 @@
         },
         "UpdatePatchBaseline": {
             "main": "./lib/actions/UpdatePatchBaseline.js",
-            "title": "<p>Modifies an existing patch baseline. Fields not specified in the request are left unchanged.</p> <note> <p>For information about valid key and value pairs in <code>PatchFilters</code> for each supported operating system type, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html\">PatchFilter</a>.</p> </note>",
-            "description": "<p>Modifies an existing patch baseline. Fields not specified in the request are left unchanged.</p> <note> <p>For information about valid key and value pairs in <code>PatchFilters</code> for each supported operating system type, see <a href=\"http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html\">PatchFilter</a>.</p> </note>",
+            "title": "UpdatePatchBaseline",
+            "description": "Modifies an existing patch baseline. Fields not specified in the request are\nleft unchanged.\n\nFor information about valid key and value pairs in PatchFilters for each\nsupported operating system type, see PatchFilter\n[http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html]\n.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -1959,8 +1959,8 @@
         },
         "UpdateServiceSetting": {
             "main": "./lib/actions/UpdateServiceSetting.js",
-            "title": "<p> <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of \"false\". This means the user can't use this feature unless they change the setting to \"true\" and intentionally opt in for a paid feature.</p> <p>Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>GetServiceSetting</a> API action to view the current value. Or, use the <a>ResetServiceSetting</a> to change the value back to the original value defined by the AWS service team.</p> <p>Update the service setting for the account. </p>",
-            "description": "<p> <code>ServiceSetting</code> is an account-level setting for an AWS service. This setting defines how a user interacts with or uses a service or a feature of a service. For example, if an AWS service charges money to the account based on feature or service usage, then the AWS service team might create a default setting of \"false\". This means the user can't use this feature unless they change the setting to \"true\" and intentionally opt in for a paid feature.</p> <p>Services map a <code>SettingId</code> object to a setting value. AWS services teams define the default value for a <code>SettingId</code>. You can't create a new <code>SettingId</code>, but you can overwrite the default value if you have the <code>ssm:UpdateServiceSetting</code> permission for the setting. Use the <a>GetServiceSetting</a> API action to view the current value. Or, use the <a>ResetServiceSetting</a> to change the value back to the original value defined by the AWS service team.</p> <p>Update the service setting for the account. </p>",
+            "title": "UpdateServiceSetting",
+            "description": " ServiceSetting is an account-level setting for an AWS service. This setting\ndefines how a user interacts with or uses a service or a feature of a service.\nFor example, if an AWS service charges money to the account based on feature or\nservice usage, then the AWS service team might create a default setting of\n\"false\". This means the user can't use this feature unless they change the\nsetting to \"true\" and intentionally opt in for a paid feature.\n\nServices map a SettingId object to a setting value. AWS services teams define\nthe default value for a SettingId. You can't create a new SettingId, but you can\noverwrite the default value if you have the ssm:UpdateServiceSetting permission\nfor the setting. Use the GetServiceSetting API action to view the current value.\nOr, use the ResetServiceSetting to change the value back to the original value\ndefined by the AWS service team.\n\nUpdate the service setting for the account.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
